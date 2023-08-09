@@ -1,0 +1,10 @@
+# all of the datasets' directories
+/camas_tiles
+/camas_tiles_test
+/camas_tiles_train
+/camas_tiles_validation
+/dataset3amostras
+/dataset4amostrasFrente+Umida
+/dataset5amostrasMeio+Seca
+/dataset6amostrasFundo+Intermediaria
+/dataset7CascaAmendoim6semCentroL1
