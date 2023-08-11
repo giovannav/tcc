@@ -8,7 +8,7 @@ import datetime
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.applications import VGG19
+from tensorflow.keras.applications import VGG16
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping
 from PIL import Image
@@ -90,7 +90,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
     test_steps = len(test_data_gen)
     val_steps = len(val_data_gen)
 
-    early_stopping = EarlyStopping(patience=5)
+    early_stopping = EarlyStopping(patience=10)
 
     print(train_steps, test_steps, val_steps)
 

@@ -5,13 +5,16 @@ import sys
 import argparse
 import datetime
 
+from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.applications import VGG16
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.callbacks import EarlyStopping, TensorBoard
-from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
+from tensorflow.keras.callbacks import EarlyStopping
 from PIL import Image
+
+device = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(device[0], True)
+tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 # set the number of classes
 num_classes = 4
@@ -19,11 +22,12 @@ num_classes = 4
 def load_model(num_epochs, img_shape, batch_size, learning_rate):
         
     variations = [
-        {"variation": "NN5-3-layers-128-64-32", "layers": 3, "cells": [128, 64, 32]},
-        {"variation": "NN5-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
+        #{"variation": "NN5-3-layers-128-64-32", "layers": 3, "cells": [128, 64, 32]},
+        #{"variation": "NN5-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
         {"variation": "NN5-4-layers-128-64-32-16", "layers": 4, "cells": [128, 64, 32, 16]},
-        {"variation": "NN5-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]},
-        {"variation": "NN5-4-layers-512-256-128-64", "layers": 4, "cells": [512, 256, 128, 64]},]
+        # {"variation": "NN5-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]},
+        # {"variation": "NN5-4-layers-512-256-128-64", "layers": 4, "cells": [512, 256, 128, 64]},
+        ]
 
     for variation in variations:
         model_name = variation["variation"]
@@ -96,7 +100,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         test_steps = len(test_data_gen)
         val_steps = len(val_data_gen)
 
-        early_stopping = EarlyStopping(patience=5)
+        early_stopping = EarlyStopping(patience=10)
 
         print(train_steps, test_steps, val_steps)
 
@@ -130,7 +134,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         class_names = test_data_gen.class_indices
         class_names = list(class_names.keys())
         
-        desired_num_predictions = len(test_data_gen)
+        desired_num_predictions = 364 #len(test_data_gen)
 
         for x, y in test_data_gen:
             batch_size = x.shape[0]

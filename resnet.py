@@ -8,7 +8,7 @@ import datetime
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.applications import VGG19
+from tensorflow.keras.applications import ResNet50
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping
 from PIL import Image
