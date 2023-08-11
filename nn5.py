@@ -22,8 +22,8 @@ num_classes = 4
 def load_model(num_epochs, img_shape, batch_size, learning_rate):
         
     variations = [
-        #{"variation": "NN5-3-layers-128-64-32", "layers": 3, "cells": [128, 64, 32]},
-        #{"variation": "NN5-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
+        {"variation": "NN5-3-layers-128-64-32", "layers": 3, "cells": [128, 64, 32]},
+        {"variation": "NN5-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
         {"variation": "NN5-4-layers-128-64-32-16", "layers": 4, "cells": [128, 64, 32, 16]},
         # {"variation": "NN5-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]},
         # {"variation": "NN5-4-layers-512-256-128-64", "layers": 4, "cells": [512, 256, 128, 64]},
