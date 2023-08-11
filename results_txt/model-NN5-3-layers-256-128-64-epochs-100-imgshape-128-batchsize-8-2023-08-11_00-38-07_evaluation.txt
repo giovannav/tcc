@@ -1,9 +1,9 @@
 Test Loss: 0.3330 
 Test Accuracy: 0.8764 
 Conf matrix: [[54  4  2  1]
- [ 0 71 10  0]
- [ 0 32 92  0]
- [ 0  0  0 98]] 
+            [ 0 71 10  0]
+            [ 0 32 92  0]
+            [ 0  0  0 98]] 
 Class names: ['Frente+Umida', 'Fundo+Intermediaria', 'Meio+Seca', 'camendoim6sCenL1'] 
 Class recall: [0.8852459  0.87654321 0.74193548 1.        ] 
 Class precision [1.         0.6635514  0.88461538 0.98989899] 

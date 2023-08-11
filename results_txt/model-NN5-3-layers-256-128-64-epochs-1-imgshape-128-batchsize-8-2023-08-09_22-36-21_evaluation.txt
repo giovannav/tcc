@@ -1,0 +1,15 @@
+Test Loss: 0.8956 
+Test Accuracy: 0.4478 
+Conf matrix: [[ 0  8  0  0]
+ [ 0  6  0  0]
+ [ 0 17  0  0]
+ [ 1  0  0 16]] 
+Class names: ['Frente+Umida', 'Fundo+Intermediaria', 'Meio+Seca', 'camendoim6sCenL1'] 
+Class recall: [0.         1.         0.         0.94117647] 
+Class precision [0.         0.20689655 0.         1.        ] 
+Class f1 score [0.         0.34285714 0.         0.96969697] 
+Epoch list [1] 
+Accuracy list [0.5331242680549622] 
+Val Accuracy list [0.5205479264259338] 
+Loss list [0.8948898315429688] 
+Val Loss list [0.9015603065490723] 
