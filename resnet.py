@@ -8,7 +8,7 @@ import datetime
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.applications import ResNet50
+from tensorflow.keras.applications import ResNet101
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping
 from PIL import Image
@@ -22,20 +22,16 @@ num_classes = 4
 
 def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, learning_rate):
     
-    resnet_model = ResNet50(weights='imagenet', include_top=False, input_shape=(img_shape, img_shape, 3))
+    resnet_model = ResNet101(weights='imagenet', include_top=False, input_shape=(img_shape, img_shape, 3))
 
     for layer in resnet_model.layers:
         layer.trainable = False
 
     model = tf.keras.Sequential([
         resnet_model,
-        tf.keras.layers.GlobalAveragePooling2D(),
-        tf.keras.layers.Dense(num_output_nodes, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(num_output_nodes//4, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(256, activation='relu'),
+        tf.keras.layers.Dense(256, activation='relu'), 
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 

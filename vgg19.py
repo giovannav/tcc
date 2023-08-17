@@ -29,13 +29,10 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
 
     model = tf.keras.Sequential([
         vgg_model,
-        tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(num_output_nodes, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(num_output_nodes//4, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
+         tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(256, activation='relu'),
+        tf.keras.layers.Dense(256, activation='relu'), 
+        tf.keras.layers.Dropout(0.1),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 
