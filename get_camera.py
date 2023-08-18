@@ -14,9 +14,9 @@ import cv2
 
 cap = cv2.VideoCapture(0)
 
+
 while True:
     _, frame = cap.read()
-    
     # img  = cv2.resize(frame, (128, 128), interpolation = cv2.INTER_AREA)
     # img = (np.expand_dims(img,0))
     # predictions_single = model.predict(img)
@@ -24,8 +24,12 @@ while True:
     # result = classes[predictions_single.argmax()]
     # print(result)
     
-    cv2.imshow('Window', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    cv2.imshow('img1',frame) #display the captured image
+    if cv2.waitKey(1) & 0xFF == ord('y'): #save on pressing 'y' 
+        cv2.imwrite('images/camas.png', frame)
+        
+    if cv2.waitKey(1) & 0xFF == ord('q'): #leave on pressing 'q' 
+        cv2.destroyAllWindows()
         break
 
 cap.release()
