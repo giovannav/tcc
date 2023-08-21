@@ -40,6 +40,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         model.add(tf.keras.layers.Dropout(0.1))
         
         for i in range(1, num_layers):
+            print(cells[0], cells[i])
             model.add(tf.keras.layers.Conv2D(cells[i], (3, 3), strides=(1, 1), padding='valid', activation='relu'))
             model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2), padding='valid'))
             model.add(tf.keras.layers.Dropout(0.1))

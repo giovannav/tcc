@@ -16,15 +16,16 @@ device = tf.config.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(device[0], True)
 tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
-# set the number of classes
-num_classes = 4
+
 
 def load_model(num_epochs, img_shape, batch_size, learning_rate):
+    # set the number of classes
+    num_classes = 4
         
     variations = [
-        #{"variation": "NN3-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
-        {"variation": "NN3-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]},
-        #{"variation": "NN3-4-layers-128-64-32-16", "layers": 3, "cells": [128, 64, 31, 16]},
+        {"variation": "NN3-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]}, 
+        #{"variation": "NN3-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]}, #nao rodou
+        #{"variation": "NN3-4-layers-128-64-32-16", "layers": 4, "cells": [128, 64, 32, 16]},
         ]
 
     for variation in variations:
@@ -34,23 +35,19 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         
         model = tf.keras.Sequential()
         model.add(tf.keras.layers.Conv2D(cells[0], 3, padding='same', activation='relu', input_shape=(img_shape, img_shape, 3)))
-        model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.Dropout(0.1))
         
         for i in range(1, num_layers):
+            print(cells[0], cells[i])
             model.add(tf.keras.layers.Conv2D(cells[i], 3, padding='same', activation='relu'))
-            model.add(tf.keras.layers.BatchNormalization())
             model.add(tf.keras.layers.MaxPooling2D())
+            model.add(tf.keras.layers.Dropout(0.1))
 
         model.add(tf.keras.layers.Flatten())
-        model.add(tf.keras.layers.Dense(256, activation='relu'))
-        model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.Dense(128, activation='relu'))
-        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.Dense(128, activation='relu'))
         model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
-
-        optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
-        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
         # Create data generators for train, test, and validation sets
         train_data_gen = ImageDataGenerator(
@@ -94,13 +91,26 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
                 batch_size=batch_size,
                 class_mode='categorical'
             )
+        
+        def lr_schedule(epoch):
+            if epoch < num_epochs * 0.5:
+                return learning_rate
+            elif epoch < num_epochs * 0.8:
+                return learning_rate * 0.1
+            else:
+                return learning_rate * 0.01
+            
+        optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
+        lr_scheduler = tf.keras.callbacks.LearningRateScheduler(lr_schedule)
+
+        early_stopping = EarlyStopping(patience=10)
 
         # Set the number of steps per epoch
         train_steps = len(train_data_gen)
         test_steps = len(test_data_gen)
         val_steps = len(val_data_gen)
-
-        early_stopping = EarlyStopping(patience=10)
 
         print(train_steps, test_steps, val_steps)
 
@@ -110,7 +120,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
             validation_data=val_data_gen,
             validation_steps=val_steps,
             epochs=num_epochs,
-            callbacks=[early_stopping]
+            callbacks=[early_stopping, lr_scheduler]
         )
         
         epoch_list = list(range(1, num_epochs + 1))

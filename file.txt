@@ -1,0 +1,1000 @@
+ 1237  21/08/23 16:04:06 ls
+ 1238  21/08/23 16:04:06 sudo dpkg -i teamviewer_15.24.5_arm64.deb
+ 1239  21/08/23 16:04:06 sudo apt-get update
+ 1240  21/08/23 16:04:06 sudo apt-get upgrade
+ 1241  21/08/23 16:04:06 sudo apt --fix-broken
+ 1242  21/08/23 16:04:06 sudo apt-get  --fix-broken
+ 1243  21/08/23 16:04:06 sudo apt-get install --fix-broken
+ 1244  21/08/23 16:04:06 sudo dpkg -i -force-overwrite
+ 1245  21/08/23 16:04:06 sudo dpkg -i -force-overwrite /var/cache/apt/archives/systemd_245.4-4ubuntu3.15_arm64.deb
+ 1246  21/08/23 16:04:06 sudo dpkg -force-overwrite /var/cache/apt/archives/systemd_245.4-4ubuntu3.15_arm64.deb
+ 1247  21/08/23 16:04:06 sudo dpkg -i --force-overwrite /var/cache/apt/archives/systemd_245.4-4ubuntu3.15_arm64.deb
+ 1248  21/08/23 16:04:06 sudo apt-get upgrade
+ 1249  21/08/23 16:04:06 sudo apt-get update
+ 1250  21/08/23 16:04:06 sudo apt-get upgrade
+ 1251  21/08/23 16:04:06 sudo apt-get update
+ 1252  21/08/23 16:04:06 sudo apt-get upgrade
+ 1253  21/08/23 16:04:06 cd /usr/share/vulkan
+ 1254  21/08/23 16:04:06 ls
+ 1255  21/08/23 16:04:06 sudo rm -rf icd.d
+ 1256  21/08/23 16:04:06 cd
+ 1257  21/08/23 16:04:06 sudo -H pip install -U jetson-stats
+ 1258  21/08/23 16:04:06 sudo reboot
+ 1259  21/08/23 16:04:06 jtop
+ 1260  21/08/23 16:04:06 jetson release -v
+ 1261  21/08/23 16:04:06 sudo apt-get update
+ 1262  21/08/23 16:04:06 sudo apt-get upgrade
+ 1263  21/08/23 16:04:06 jetson
+ 1264  21/08/23 16:04:06 jtop
+ 1265  21/08/23 16:04:06 sudo apt-get update
+ 1266  21/08/23 16:04:06 sudo apt-get upgrade
+ 1267  21/08/23 16:04:06 sudo rm -rf /usr/share/vulkan/icd.d
+ 1268  21/08/23 16:04:06 sudo reboot
+ 1269  21/08/23 16:04:06 sudo apt-get update
+ 1270  21/08/23 16:04:06 sudo apt-get upgrade
+ 1271  21/08/23 16:04:06 sudo apt-get --with-new-pkgs upgrade
+ 1272  21/08/23 16:04:06 sudo apt-get update
+ 1273  21/08/23 16:04:06 sudo apt-get upgrade
+ 1274  21/08/23 16:04:06 sudo apt-get autoremove
+ 1275  21/08/23 16:04:06 sudo apt-get clean
+ 1276  21/08/23 16:04:06 sudo reboot
+ 1277  21/08/23 16:04:06 cat os-release
+ 1278  21/08/23 16:04:06 gcc --version
+ 1279  21/08/23 16:04:06 lsb_release -a
+ 1280  21/08/23 16:04:06 python3
+ 1281  21/08/23 16:04:06 df -h
+ 1282  21/08/23 16:04:06 python3
+ 1283  21/08/23 16:04:06 sudo apt-get update
+ 1284  21/08/23 16:04:06 sudo apt-get upgrade
+ 1285  21/08/23 16:04:06 gdown https://drive.google.com/uc?id=1MnVB7I4N8iVDAkogJO76CiQ2KRbyXH_e
+ 1286  21/08/23 16:04:06 ls
+ 1287  21/08/23 16:04:06 sudo -H pip3 install torch-1.12.0a0+git67ece03-cp38-cp38-linux_aarch64.whl
+ 1288  21/08/23 16:04:06 python3
+ 1289  21/08/23 16:04:06 gdown https://drive.google.com/uc?id=11DPKcWzLjZa5kRXRodRJ3t9md0EMydhj
+ 1290  21/08/23 16:04:06 sudo -H pip3 install torchvision-0.13.0a0+da3794e-cp38-cp38-linux_aarch64.whl
+ 1291  21/08/23 16:04:06 rm torchvision-0.13.0a0+da3794e-cp38-cp38-linux_aarch64.whl
+ 1292  21/08/23 16:04:06 rm torch-1.12.0a0+git67ece03-cp38-cp38-linux_aarch64.whl
+ 1293  21/08/23 16:04:06 df -h
+ 1294  21/08/23 16:04:06 free -m
+ 1295  21/08/23 16:04:06 sudo fallocate -l 2G /var/swapfile
+ 1296  21/08/23 16:04:06 sudo chmod 600 /var/swapfile
+ 1297  21/08/23 16:04:06 sudo mkswap /var/swapfile
+ 1298  21/08/23 16:04:06 sudo swapon /var/swapfile
+ 1299  21/08/23 16:04:06 sudo nano /etc/fstab
+ 1300  21/08/23 16:04:06 sudo reboot
+ 1301  21/08/23 16:04:06 free -m
+ 1302  21/08/23 16:04:06 df -h
+ 1303  21/08/23 16:04:06 sudo rm /usr/share/applications/vpi1_demos
+ 1304  21/08/23 16:04:06 sudo apt-get install baobab
+ 1305  21/08/23 16:04:06 git clone https://github.com/Qengineering/Install-OpenCV-Jetson-Nano.git
+ 1306  21/08/23 16:04:06 ls
+ 1307  21/08/23 16:04:06 sudo chmod 755 ./OpenCV-4-6-0.sh
+ 1308  21/08/23 16:04:06 ./OpenCV-4-6-0.sh
+ 1309  21/08/23 16:04:06 python3
+ 1310  21/08/23 16:04:06 cat /etc/os-release
+ 1311  21/08/23 16:04:06 uname -a
+ 1312  21/08/23 16:04:06 clear
+ 1313  21/08/23 16:04:06 python3
+ 1314  21/08/23 16:04:06 jtop
+ 1315  21/08/23 16:04:06 ls
+ 1316  21/08/23 16:04:06 sudo rm -rf open*
+ 1317  21/08/23 16:04:06 rm OpenC*
+ 1318  21/08/23 16:04:06 ls
+ 1319  21/08/23 16:04:06 df -h
+ 1320  21/08/23 16:04:06 sudo apt-get update
+ 1321  21/08/23 16:04:06 sudo apt-get upgrade
+ 1322  21/08/23 16:04:06 sudo apt-get autoremove
+ 1323  21/08/23 16:04:06 sudo apt-get clean
+ 1324  21/08/23 16:04:06 python
+ 1325  21/08/23 16:04:06 python3
+ 1326  21/08/23 16:04:06 lsusb
+ 1327  21/08/23 16:04:06 sudo apt-get update
+ 1328  21/08/23 16:04:06 sudo apt-get install git
+ 1329  21/08/23 16:04:06 sudo apt-get install dkms
+ 1330  21/08/23 16:04:06 lsusb
+ 1331  21/08/23 16:04:06 sudo apt-get update
+ 1332  21/08/23 16:04:06 sudo apt-get install git
+ 1333  21/08/23 16:04:06 sudo apt-get install dkms
+ 1334  21/08/23 16:04:06 sudo apt-get install module-assistant
+ 1335  21/08/23 16:04:06 mkdir /home/nupea/DriverBuild
+ 1336  21/08/23 16:04:06 cd /home
+ 1337  21/08/23 16:04:06 ls
+ 1338  21/08/23 16:04:06 mkdir /home/nupea/
+ 1339  21/08/23 16:04:06 mkdir /home/jetson/DriverBuild
+ 1340  21/08/23 16:04:06 cd /home/jetson/DriverBuild
+ 1341  21/08/23 16:04:06 sudo m-a update
+ 1342  21/08/23 16:04:06 sudo m-a prepare
+ 1343  21/08/23 16:04:06 git clone https://github.com/kelebek333/rtl8188fu
+ 1344  21/08/23 16:04:06 sudo dkms add ./rtl8188fu
+ 1345  21/08/23 16:04:06 sudo dkms build rtl8188fu/1.0
+ 1346  21/08/23 16:04:06 sudo dkms install rtl8188fu/1.0
+ 1347  21/08/23 16:04:06 sudo cp ./rtl8188fu/firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/
+ 1348  21/08/23 16:04:06 ls
+ 1349  21/08/23 16:04:06 python3 -m venv /opt/tensorflowenv
+ 1350  21/08/23 16:04:06 sudo
+ 1351  21/08/23 16:04:06 cd Documents
+ 1352  21/08/23 16:04:06 mkdir pythonscripts
+ 1353  21/08/23 16:04:06 ls
+ 1354  21/08/23 16:04:06 cd pythonscripts
+ 1355  21/08/23 16:04:06 python3 -m venv /opt/tensorflowenv
+ 1356  21/08/23 16:04:06 python3 -m venv tensorflowenv
+ 1357  21/08/23 16:04:06 apt install python3.8-venv
+ 1358  21/08/23 16:04:06 sduo apt install python3.8-venv
+ 1359  21/08/23 16:04:06 sudo apt install python3.8-venv
+ 1360  21/08/23 16:04:06 ls
+ 1361  21/08/23 16:04:06 source tensorflowenv/activate
+ 1362  21/08/23 16:04:06 cd tensorflowenv
+ 1363  21/08/23 16:04:06 ls
+ 1364  21/08/23 16:04:06 cd bin
+ 1365  21/08/23 16:04:06 ls
+ 1366  21/08/23 16:04:06 cd ..
+ 1367  21/08/23 16:04:06 bin include lib lib64 pyenv.cfg share
+ 1368  21/08/23 16:04:06 cd tensorflowenv
+ 1369  21/08/23 16:04:06 bin include lib lib64 pyenv.cfg share
+ 1370  21/08/23 16:04:06 cd ..
+ 1371  21/08/23 16:04:06 python3 -m virtualenv env
+ 1372  21/08/23 16:04:06 python3 -m venv env
+ 1373  21/08/23 16:04:06 source env/bin/activate
+ 1374  21/08/23 16:04:06 pip list
+ 1375  21/08/23 16:04:06 pip install numpy
+ 1376  21/08/23 16:04:06 pip install tensorflow==2.9.0
+ 1377  21/08/23 16:04:06 pip install tensorflow==2.10.0
+ 1378  21/08/23 16:04:06 pip list
+ 1379  21/08/23 16:04:06 pip3 install --upgrade tensorflow 
+ 1380  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1381  21/08/23 16:04:06 pip3 install --upgrade setuptools
+ 1382  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1383  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==2.11.0+nv23.01
+ 1384  21/08/23 16:04:06 pip list
+ 1385  21/08/23 16:04:06 git clone https://github.com/giovannav/scripts-camas.git
+ 1386  21/08/23 16:04:06 ls
+ 1387  21/08/23 16:04:06 cd scripts-camas
+ 1388  21/08/23 16:04:06 ls
+ 1389  21/08/23 16:04:06 python pythontest.py
+ 1390  21/08/23 16:04:06 pip3 install matplotlib
+ 1391  21/08/23 16:04:06 whereis cuda
+ 1392  21/08/23 16:04:06 python pythontest.py
+ 1393  21/08/23 16:04:06 python camas_vgg19.py vgg19 64 2
+ 1394  21/08/23 16:04:06 pip3 install scipy
+ 1395  21/08/23 16:04:06 python camas_vgg19.py vgg19 64 2
+ 1396  21/08/23 16:04:06 pip list
+ 1397  21/08/23 16:04:06 python --version
+ 1398  21/08/23 16:04:06 nvcc --version
+ 1399  21/08/23 16:04:06 whereis cuda
+ 1400  21/08/23 16:04:06 /usr/loca/cuda/bin/nvcc --version
+ 1401  21/08/23 16:04:06 /usr/local/cuda/bin/nvcc --version
+ 1402  21/08/23 16:04:06 cat /etc/os-release
+ 1403  21/08/23 16:04:06 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/sbsa/cuda-ubuntu2004.pin
+ 1404  21/08/23 16:04:06 ls
+ 1405  21/08/23 16:04:06 deactivate
+ 1406  21/08/23 16:04:06 cd ..
+ 1407  21/08/23 16:04:06 cd..
+ 1408  21/08/23 16:04:06 cd ..
+ 1409  21/08/23 16:04:06 cd Donwloads
+ 1410  21/08/23 16:04:06 cd Downloads
+ 1411  21/08/23 16:04:06 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/sbsa/cuda-ubuntu2004.pin
+ 1412  21/08/23 16:04:06 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+ 1413  21/08/23 16:04:06 whereis tensorrt
+ 1414  21/08/23 16:04:06 cd Documents
+ 1415  21/08/23 16:04:06 cd ..
+ 1416  21/08/23 16:04:06 cd Documents
+ 1417  21/08/23 16:04:06 ls
+ 1418  21/08/23 16:04:06 cd pythonscripts
+ 1419  21/08/23 16:04:06 ls
+ 1420  21/08/23 16:04:06 source env/bin/activate
+ 1421  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1422  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1423  21/08/23 16:04:06 deactivate
+ 1424  21/08/23 16:04:06 python3 -m venv env2
+ 1425  21/08/23 16:04:06 source env2/bin/activate
+ 1426  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1427  21/08/23 16:04:06 sudo apt-get install nvidia-jetpack
+ 1428  21/08/23 16:04:06 sudo apt-get update
+ 1429  21/08/23 16:04:06 sudo apt-get upgrade
+ 1430  21/08/23 16:04:06 ls
+ 1431  21/08/23 16:04:06 cd Documents
+ 1432  21/08/23 16:04:06 ls
+ 1433  21/08/23 16:04:06 cd pythonscripts
+ 1434  21/08/23 16:04:06 ls
+ 1435  21/08/23 16:04:06 env2/bin/activate
+ 1436  21/08/23 16:04:06 sudo
+ 1437  21/08/23 16:04:06 source env2/bin/activate
+ 1438  21/08/23 16:04:06 sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
+ 1439  21/08/23 16:04:06 sudo apt-get install python3-pip
+ 1440  21/08/23 16:04:06 sudo python3 -m pip install --upgrade pip
+ 1441  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1442  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1443  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==2.1.0+nv10.2
+ 1444  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==2.3.0+nv20.8
+ 1445  21/08/23 16:04:06 pip3 install tensorflow==2.1.0
+ 1446  21/08/23 16:04:06 deactivate
+ 1447  21/08/23 16:04:06 python3
+ 1448  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1449  21/08/23 16:04:06 pip list
+ 1450  21/08/23 16:04:06 pip uninstall tensorflow
+ 1451  21/08/23 16:04:06 source env2/bin/activate
+ 1452  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1453  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1454  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1455  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1456  21/08/23 16:04:06 pip3 install Cython
+ 1457  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1458  21/08/23 16:04:06 pip install Cython
+ 1459  21/08/23 16:04:06 pip3 install Cython
+ 1460  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1461  21/08/23 16:04:06 sudo apt-get install libhdf5-serial-dev
+ 1462  21/08/23 16:04:06 sudo apt-get install build-essential
+ 1463  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1464  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1465  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1466  21/08/23 16:04:06 deactivate
+ 1467  21/08/23 16:04:06 cd ..
+ 1468  21/08/23 16:04:06 cd Downloads
+ 1469  21/08/23 16:04:06 ls
+ 1470  21/08/23 16:04:06 chmod +x Miniconda3-py38_23.3.1-0-Linux-aarch64.sh
+ 1471  21/08/23 16:04:06 ls
+ 1472  21/08/23 16:04:06 ./Miniconda3-py38_23.3.1-0-Linux-aarch64.sh
+ 1473  21/08/23 16:04:06 cd ..
+ 1474  21/08/23 16:04:06 ~/Downloads/Miniconda3-py38_23.3.1-0-Linux-aarch64.sh -bf
+ 1475  21/08/23 16:04:06 lsb_release -a
+ 1476  21/08/23 16:04:06 free -h
+ 1477  21/08/23 16:04:06 uname -a
+ 1478  21/08/23 16:04:06 sudo apt update
+ 1479  21/08/23 16:04:06 sudo apt install curl -y
+ 1480  21/08/23 16:04:06 cd /tmp
+ 1481  21/08/23 16:04:06 ~/Downloads/Miniconda3-py38_23.3.1-0-Linux-aarch64.sh -bf
+ 1482  21/08/23 16:04:06 wget -nc https://repo.continuum.io/miniconda/Miniconda3-py38_23.3.1-0-Linux-aarch64.sh -P ~/Downloads
+ 1483  21/08/23 16:04:06 chmod +x ~/Downloads/Miniconda3-py38_23.3.1-0-Linux-aarch64.sh
+ 1484  21/08/23 16:04:06 ~/Downloads/Miniconda3-py38_23.3.1-0-Linux-aarch64.sh -bf
+ 1485  21/08/23 16:04:06 sudo ~/Downloads/Miniconda3-py38_23.3.1-0-Linux-aarch64.sh -bf
+ 1486  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1487  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1488  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1489  21/08/23 16:04:06 sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
+ 1490  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1491  21/08/23 16:04:06 sudo apt-get update
+ 1492  21/08/23 16:04:06 sudo apt-get install -y build-essential libhdf5-serial-dev hdf5-tools
+ 1493  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock request gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1494  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1495  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1496  21/08/23 16:04:06 sudo apt-get update
+ 1497  21/08/23 16:04:06 pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta setuptools testresources
+ 1498  21/08/23 16:04:06 sudo apt-get install -y build-essential libhdf5-serial-dev hdf5-tools
+ 1499  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v51 tensorflow==1.15.5+nv23.01
+ 1500  21/08/23 16:04:06 cd Documents
+ 1501  21/08/23 16:04:06 ls
+ 1502  21/08/23 16:04:06 cd pythonscripts
+ 1503  21/08/23 16:04:06 ls
+ 1504  21/08/23 16:04:06 cd scripts-camas
+ 1505  21/08/23 16:04:06 ls
+ 1506  21/08/23 16:04:06 python pythontest.py
+ 1507  21/08/23 16:04:06 python3 pythontest.py
+ 1508  21/08/23 16:04:06 vi pythontest.py
+ 1509  21/08/23 16:04:06 cat pythontest.pt
+ 1510  21/08/23 16:04:06 cat pythontest.py
+ 1511  21/08/23 16:04:06 python3 pythontest.py
+ 1512  21/08/23 16:04:06 vi pythontest.py
+ 1513  21/08/23 16:04:06 python3 pythontest.py
+ 1514  21/08/23 16:04:06 pip show tensorflow
+ 1515  21/08/23 16:04:06 nvidia-smi
+ 1516  21/08/23 16:04:06 sudo apt-get install nvidia-utils
+ 1517  21/08/23 16:04:06 jetson-stats
+ 1518  21/08/23 16:04:06 sudo apt-get update
+ 1519  21/08/23 16:04:06 sudo apt-get install python3-pip
+ 1520  21/08/23 16:04:06 sudo pip3 install -U jetson-stats
+ 1521  21/08/23 16:04:06 sudo jtop
+ 1522  21/08/23 16:04:06 sudo systemctl restart jtop.service
+ 1523  21/08/23 16:04:06 sudo jtop
+ 1524  21/08/23 16:04:06 nvidia-smi
+ 1525  21/08/23 16:04:06 python3 pythontest.py
+ 1526  21/08/23 16:04:06 whereis cuda
+ 1527  21/08/23 16:04:06 sudo jtop
+ 1528  21/08/23 16:04:06 tegrastats
+ 1529  21/08/23 16:04:06 vi pythontest.py
+ 1530  21/08/23 16:04:06 python3 pythontest.py
+ 1531  21/08/23 16:04:06 vi pythontest.py
+ 1532  21/08/23 16:04:06 python3 pythontest.py
+ 1533  21/08/23 16:04:06 nvcc --version
+ 1534  21/08/23 16:04:06 nvlc --version
+ 1535  21/08/23 16:04:06 echo $LD_LIBRARY_PATH
+ 1536  21/08/23 16:04:06 cd ..
+ 1537  21/08/23 16:04:06 ~/.bashrc
+ 1538  21/08/23 16:04:06 sudo ~/.bashrc
+ 1539  21/08/23 16:04:06 ~/.bash_profisle
+ 1540  21/08/23 16:04:06 ~/.bash_profile
+ 1541  21/08/23 16:04:06 ls
+ 1542  21/08/23 16:04:06 cd ..
+ 1543  21/08/23 16:04:06 ls
+ 1544  21/08/23 16:04:06 cd jetson
+ 1545  21/08/23 16:04:06 ls
+ 1546  21/08/23 16:04:06 cd ..
+ 1547  21/08/23 16:04:06 ls
+ 1548  21/08/23 16:04:06 cd usr
+ 1549  21/08/23 16:04:06 ls
+ 1550  21/08/23 16:04:06 cd local
+ 1551  21/08/23 16:04:06 ls
+ 1552  21/08/23 16:04:06 cd cuda
+ 1553  21/08/23 16:04:06 ls
+ 1554  21/08/23 16:04:06 cat version.txt
+ 1555  21/08/23 16:04:06 cd lib64
+ 1556  21/08/23 16:04:06 ls
+ 1557  21/08/23 16:04:06 cd ..
+ 1558  21/08/23 16:04:06 cd..
+ 1559  21/08/23 16:04:06 cd ..
+ 1560  21/08/23 16:04:06 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+ 1561  21/08/23 16:04:06 echo $LD_LIBRARY_PATH
+ 1562  21/08/23 16:04:06 source ~/.bashrc
+ 1563  21/08/23 16:04:06 ls
+ 1564  21/08/23 16:04:06 cd home
+ 1565  21/08/23 16:04:06 ls
+ 1566  21/08/23 16:04:06 cd jetson
+ 1567  21/08/23 16:04:06 ls
+ 1568  21/08/23 16:04:06 cd Documents/pythonscripts
+ 1569  21/08/23 16:04:06 ls
+ 1570  21/08/23 16:04:06 cd scripts-camas
+ 1571  21/08/23 16:04:06 ls
+ 1572  21/08/23 16:04:06 python pythontest.py
+ 1573  21/08/23 16:04:06 python3 pythontest.py
+ 1574  21/08/23 16:04:06 export LD_LIBRARY_PATH=/usr/local/cuda/lib64
+ 1575  21/08/23 16:04:06 echo $LD_LIBRARY_PATH
+ 1576  21/08/23 16:04:06 python3 pythontest.py
+ 1577  21/08/23 16:04:06 where is licudart.so.11.0
+ 1578  21/08/23 16:04:06 whereis libcudart.so.11.0
+ 1579  21/08/23 16:04:06 ls /usr/local/cuda-10.0/lib64 | grep cudart
+ 1580  21/08/23 16:04:06 ls /usr/local/cuda-10/lib64 | grep cudart
+ 1581  21/08/23 16:04:06 export LD_LIBRARY_PATH=/usr/local/cuda-10/lib64
+ 1582  21/08/23 16:04:06 ~/.bashrc
+ 1583  21/08/23 16:04:06 python3 pythontest.py
+ 1584  21/08/23 16:04:06 pip install --upgrade tensorflow==1.15.5
+ 1585  21/08/23 16:04:06 nvcc --version
+ 1586  21/08/23 16:04:06 cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2
+ 1587  21/08/23 16:04:06 cd /usr/lib/x86_64-linux-gnu/
+ 1588  21/08/23 16:04:06 cd /usr/lib/aarch64-linux-gnu/
+ 1589  21/08/23 16:04:06 ls libcudnn*
+ 1590  21/08/23 16:04:06 python 3.6
+ 1591  21/08/23 16:04:06 python3.6
+ 1592  21/08/23 16:04:06 apt search python3 | grep "python3\."
+ 1593  21/08/23 16:04:06 sudo apt install python3.6
+ 1594  21/08/23 16:04:06 ls
+ 1595  21/08/23 16:04:06 cd Documents
+ 1596  21/08/23 16:04:06 cd pythonscripts
+ 1597  21/08/23 16:04:06 ls
+ 1598  21/08/23 16:04:06 cd scripts-camas
+ 1599  21/08/23 16:04:06 ls
+ 1600  21/08/23 16:04:06 python3 pythontest.py
+ 1601  21/08/23 16:04:06 sudo apt-get install nvidia-cuda-toolkit
+ 1602  21/08/23 16:04:06 nvcc --version
+ 1603  21/08/23 16:04:06 cd ~
+ 1604  21/08/23 16:04:06 cd Downloads
+ 1605  21/08/23 16:04:06 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/arm64/cuda-keyring_1.1-1_all.deb
+ 1606  21/08/23 16:04:06 sudo dpkg -i cuda-keyring_1.1-1_all.deb
+ 1607  21/08/23 16:04:06 cd pythonscripts
+ 1608  21/08/23 16:04:06 cd ~
+ 1609  21/08/23 16:04:06 cd Documents/pythonscripts/scripts-camas
+ 1610  21/08/23 16:04:06 ls
+ 1611  21/08/23 16:04:06 ca ..
+ 1612  21/08/23 16:04:06 cd ..
+ 1613  21/08/23 16:04:06 ls
+ 1614  21/08/23 16:04:06 source env2/bin/activate
+ 1615  21/08/23 16:04:06 pip install update pip
+ 1616  21/08/23 16:04:06 pip3 install update pip
+ 1617  21/08/23 16:04:06 python --version
+ 1618  21/08/23 16:04:06 deactivate
+ 1619  21/08/23 16:04:06 python 3.6 -m ensurepip --upgrade
+ 1620  21/08/23 16:04:06 python3.6 -m ensurepip --upgrade
+ 1621  21/08/23 16:04:06 python3.6 -m venv .venv
+ 1622  21/08/23 16:04:06 sudo apt update
+ 1623  21/08/23 16:04:06 sudo apt install python3.6 python3.6-dev
+ 1624  21/08/23 16:04:06 sudo add-apt-repository ppa:deadsnakes/ppa
+ 1625  21/08/23 16:04:06 sudo apt update
+ 1626  21/08/23 16:04:06 sudo apt install python3.6 python3.6-dev
+ 1627  21/08/23 16:04:06 sudo apt update
+ 1628  21/08/23 16:04:06 python3.6
+ 1629  21/08/23 16:04:06 cd Documentos
+ 1630  21/08/23 16:04:06 cd Documents/pythonscripts
+ 1631  21/08/23 16:04:06 ls
+ 1632  21/08/23 16:04:06 python3.6 -m venv venv
+ 1633  21/08/23 16:04:06 python3.6 -m venv env
+ 1634  21/08/23 16:04:06 sudo update-alternation --list python3
+ 1635  21/08/23 16:04:06 sudo update-alternatives --list python3
+ 1636  21/08/23 16:04:06 nano ~/.bashrc
+ 1637  21/08/23 16:04:06 source ~/.bashrc
+ 1638  21/08/23 16:04:06 python3 --version
+ 1639  21/08/23 16:04:06 cd ~
+ 1640  21/08/23 16:04:06 ls
+ 1641  21/08/23 16:04:06 cd ..
+ 1642  21/08/23 16:04:06 ls
+ 1643  21/08/23 16:04:06 cd ..
+ 1644  21/08/23 16:04:06 ls
+ 1645  21/08/23 16:04:06 cd usr
+ 1646  21/08/23 16:04:06 whereis python3.6
+ 1647  21/08/23 16:04:06 nano ~/.bashrc
+ 1648  21/08/23 16:04:06 source ~/.bashrc
+ 1649  21/08/23 16:04:06 python3 --version
+ 1650  21/08/23 16:04:06 ca ~
+ 1651  21/08/23 16:04:06 cd ..
+ 1652  21/08/23 16:04:06 cd home
+ 1653  21/08/23 16:04:06 ls
+ 1654  21/08/23 16:04:06 cd jetson
+ 1655  21/08/23 16:04:06 ls
+ 1656  21/08/23 16:04:06 cd Documents/pythonscripts
+ 1657  21/08/23 16:04:06 ls
+ 1658  21/08/23 16:04:06 python3 -m venv env
+ 1659  21/08/23 16:04:06 ls
+ 1660  21/08/23 16:04:06 python3 -m venv venv
+ 1661  21/08/23 16:04:06 python3
+ 1662  21/08/23 16:04:06 sudo apt-get update
+ 1663  21/08/23 16:04:06 sudo apt-get install libhdf5-serial-dev
+ 1664  21/08/23 16:04:06 sudo apt-get install hdf5-tools
+ 1665  21/08/23 16:04:06 sudo apt-get install libhdf5-dev
+ 1666  21/08/23 16:04:06 sudo apt-get install zlib1g-dev
+ 1667  21/08/23 16:04:06 sudo apt-get install zip
+ 1668  21/08/23 16:04:06 sudo apt-get install libjpeg8-dev
+ 1669  21/08/23 16:04:06 sudo apt-get install liblapack-dev
+ 1670  21/08/23 16:04:06 sudo apt-get install libblas-dev
+ 1671  21/08/23 16:04:06 sudo apt-get install gfortran
+ 1672  21/08/23 16:04:06 sudo apt-get install python3-pip
+ 1673  21/08/23 16:04:06 sudo pip3 install -U pip
+ 1674  21/08/23 16:04:06 sudo pip3 install -U pip testresources setuptools==49.6.0
+ 1675  21/08/23 16:04:06 sudo pip3 install -U pip testresources setuptools numpy==1.16.1
+ 1676  21/08/23 16:04:06 nano ~/.bashrc
+ 1677  21/08/23 16:04:06 source ~/.bashrc
+ 1678  21/08/23 16:04:06 python3 -m venv venv
+ 1679  21/08/23 16:04:06 python3
+ 1680  21/08/23 16:04:06 pip3 install --upgrade virtualenv
+ 1681  21/08/23 16:04:06 sudo apt-get install python3-distutils
+ 1682  21/08/23 16:04:06 pip3 install --upgrade virtualenv
+ 1683  21/08/23 16:04:06 python3.6
+ 1684  21/08/23 16:04:06 python3.6 -m venv venv
+ 1685  21/08/23 16:04:06 pip3 --version
+ 1686  21/08/23 16:04:06 sudo pip3 install -U pip testresources setuptools numpy==1.16.1
+ 1687  21/08/23 16:04:06 sudo pip3 install -U pip
+ 1688  21/08/23 16:04:06 pip3 install --upgrade virtualenv
+ 1689  21/08/23 16:04:06 python3 -m venv venv
+ 1690  21/08/23 16:04:06 python3.6
+ 1691  21/08/23 16:04:06 pip3 --version
+ 1692  21/08/23 16:04:06 nano ~/.bashrc
+ 1693  21/08/23 16:04:06 source ~/.bashrc
+ 1694  21/08/23 16:04:06 python3.6 -m venv venv
+ 1695  21/08/23 16:04:06 python3.6-venv
+ 1696  21/08/23 16:04:06 sudo apt-get install python3.6-venv
+ 1697  21/08/23 16:04:06 python3.6 -m venv venv
+ 1698  21/08/23 16:04:06 ls
+ 1699  21/08/23 16:04:06 source venv/bin/activate
+ 1700  21/08/23 16:04:06 python --version
+ 1701  21/08/23 16:04:06 sudo pip3 install -U pip
+ 1702  21/08/23 16:04:06 pip3 install -U pip
+ 1703  21/08/23 16:04:06 pip3 install -U testresources setuptools==49.6.0
+ 1704  21/08/23 16:04:06 pip3 install -U testresources setuptools numpy==1.16.1 future==0.17.1 mock==3.0.5 h5py==2.9.0 keras_preprocessing==1.0.5 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
+ 1705  21/08/23 16:04:06 pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/v44 tensorflow==2.3.1+nv20.10
+ 1706  21/08/23 16:04:06 pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow==2.3.1+nv20.10
+ 1707  21/08/23 16:04:06 ls
+ 1708  21/08/23 16:04:06 cd scripts-camas
+ 1709  21/08/23 16:04:06 ls
+ 1710  21/08/23 16:04:06 python pythontest.py
+ 1711  21/08/23 16:04:06 python3 pythontest.py
+ 1712  21/08/23 16:04:06 pip3 install matplotlib
+ 1713  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1714  21/08/23 16:04:06 vi camas_vgg19.py
+ 1715  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1716  21/08/23 16:04:06 pip3 install pillow
+ 1717  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1718  21/08/23 16:04:06 vi camas_vgg19.py
+ 1719  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1720  21/08/23 16:04:06 pip3 install Pillow --upgrade
+ 1721  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1722  21/08/23 16:04:06 deactivate
+ 1723  21/08/23 16:04:06 cd Documents/pythonscripts/scripts-camas
+ 1724  21/08/23 16:04:06 ls
+ 1725  21/08/23 16:04:06 cd ..
+ 1726  21/08/23 16:04:06 ls
+ 1727  21/08/23 16:04:06 source venv/bin/activate
+ 1728  21/08/23 16:04:06 python camas_vgg19.py vgg19 64 10
+ 1729  21/08/23 16:04:06 python cama_vgg19.py vgg19 64 10
+ 1730  21/08/23 16:04:06 cd scripts-camas
+ 1731  21/08/23 16:04:06 python cama_vgg19.py vgg19 64 10
+ 1732  21/08/23 16:04:06 python camas_vgg19.py vgg19 64 10
+ 1733  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 64 10
+ 1734  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1735  21/08/23 16:04:06 pip list
+ 1736  21/08/23 16:04:06 cd ..
+ 1737  21/08/23 16:04:06 ls
+ 1738  21/08/23 16:04:06 cd scripts-camas
+ 1739  21/08/23 16:04:06 ls
+ 1740  21/08/23 16:04:06 python --version
+ 1741  21/08/23 16:04:06 pip3 list
+ 1742  21/08/23 16:04:06 deactivate
+ 1743  21/08/23 16:04:06 pip list
+ 1744  21/08/23 16:04:06 python --version
+ 1745  21/08/23 16:04:06 python3 --version
+ 1746  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1747  21/08/23 16:04:06 cd ..
+ 1748  21/08/23 16:04:06 source venv/bin/activate
+ 1749  21/08/23 16:04:06 ls
+ 1750  21/08/23 16:04:06 pip3 list
+ 1751  21/08/23 16:04:06 python3.6
+ 1752  21/08/23 16:04:06 python --version
+ 1753  21/08/23 16:04:06 pip3.6 list
+ 1754  21/08/23 16:04:06 python3.6 camas_vgg19.py vgg19 256 10
+ 1755  21/08/23 16:04:06 cd scripts-camas
+ 1756  21/08/23 16:04:06 python3.6 camas_vgg19.py vgg19 256 10
+ 1757  21/08/23 16:04:06 sudo apt-get update
+ 1758  21/08/23 16:04:06 sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
+ 1759  21/08/23 16:04:06 sudo apt-get install python3-pip
+ 1760  21/08/23 16:04:06 sudo pip3 install -U pip testresources setuptools numpy==1.16.1 future==0.17.1 mock==3.0.5 h5py==2.9.0 keras_preprocessing==1.0.5 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
+ 1761  21/08/23 16:04:06 pip3 install -U pip
+ 1762  21/08/23 16:04:06 pip3 list
+ 1763  21/08/23 16:04:06 pip3 install -U pip testresources setuptools=49.6.0
+ 1764  21/08/23 16:04:06 pip3 install -U pip testresources setuptools==49.6.0
+ 1765  21/08/23 16:04:06 pip3 list
+ 1766  21/08/23 16:04:06 pip3 install -U pip testresources setuptools numpy==1.16.1 future==0.17.1 mock==3.0.5 h5py==2.9.0 keras_preprocessing==1.0.5 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
+ 1767  21/08/23 16:04:06 pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow==2.3.1+nv20.10
+ 1768  21/08/23 16:04:06 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow==2.3.1+nv20.10
+ 1769  21/08/23 16:04:06 pip3 install --extra-index-url http://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow==2.3.1+nv20.10
+ 1770  21/08/23 16:04:06 pip3 list
+ 1771  21/08/23 16:04:06 pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow==2.3.1+nv20.10
+ 1772  21/08/23 16:04:06 pip list
+ 1773  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1774  21/08/23 16:04:06 pip3 install Pillow
+ 1775  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1776  21/08/23 16:04:06 pip3 install scipy
+ 1777  21/08/23 16:04:06 python3 -m pip3 install scipy
+ 1778  21/08/23 16:04:06 pip3 install scipy
+ 1779  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1780  21/08/23 16:04:06 vi camas_vgg19.py
+ 1781  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1782  21/08/23 16:04:06 sudo apt update
+ 1783  21/08/23 16:04:06 sudo apt install python3-dev python3-pip libblas-dev liblapack-dev libatlas-base-dev gfortran
+ 1784  21/08/23 16:04:06 pip3 install scipy
+ 1785  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1786  21/08/23 16:04:06 vi camas_vgg19.py
+ 1787  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1788  21/08/23 16:04:06 vi camas_vgg19.py
+ 1789  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1790  21/08/23 16:04:06 git pull
+ 1791  21/08/23 16:04:06 git status
+ 1792  21/08/23 16:04:06 git add .
+ 1793  21/08/23 16:04:06 git commit -m "update vgg19"
+ 1794  21/08/23 16:04:06 vi camas_vgg19.py
+ 1795  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1796  21/08/23 16:04:06 vi camas_vgg19.py
+ 1797  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 10
+ 1798  21/08/23 16:04:06 vi camas_vgg19.py
+ 1799  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 128 10
+ 1800  21/08/23 16:04:06 deactivate
+ 1801  21/08/23 16:04:06 source venv/bin/activate
+ 1802  21/08/23 16:04:06 cd ..
+ 1803  21/08/23 16:04:06 source venv/bin/activate
+ 1804  21/08/23 16:04:06 pip3 list
+ 1805  21/08/23 16:04:06 deactivate
+ 1806  21/08/23 16:04:06 cd ..
+ 1807  21/08/23 16:04:06 cd Downloads
+ 1808  21/08/23 16:04:06 wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
+ 1809  21/08/23 16:04:06 ls
+ 1810  21/08/23 16:04:06 sudo dpkg -i code.deb
+ 1811  21/08/23 16:04:06 ls
+ 1812  21/08/23 16:04:06 sudo dpkg -i code_1.79.2-1686733230_arm64.deb
+ 1813  21/08/23 16:04:06 code
+ 1814  21/08/23 16:04:06 git status
+ 1815  21/08/23 16:04:06 git add .gitignore
+ 1816  21/08/23 16:04:06 git add venv
+ 1817  21/08/23 16:04:06 git add pythontest.py camas_vgg19.py camas_vgg16.py camas_resnet.py
+ 1818  21/08/23 16:04:06 git commit -m "add env"
+ 1819  21/08/23 16:04:06 git config --global user.email "giovannafrederico60@gmail.com"
+ 1820  21/08/23 16:04:06 git config --global user.name "giovannav"
+ 1821  21/08/23 16:04:06 git commit -m "add env"
+ 1822  21/08/23 16:04:06 git push
+ 1823  21/08/23 16:04:06 git reset venv
+ 1824  21/08/23 16:04:06 git status
+ 1825  21/08/23 16:04:06 git commit -m "add env"
+ 1826  21/08/23 16:04:06 git push
+ 1827  21/08/23 16:04:06 git rm --cached venv
+ 1828  21/08/23 16:04:06 git status
+ 1829  21/08/23 16:04:06 source venv/bin/activate
+ 1830  21/08/23 16:04:06 pip3 freeze > requirements
+ 1831  21/08/23 16:04:06 pip3 freeze > requirements.txt
+ 1832  21/08/23 16:04:06 git reset
+ 1833  21/08/23 16:04:06 git status
+ 1834  21/08/23 16:04:06 git add .gitignore
+ 1835  21/08/23 16:04:06 git add requirements.txt
+ 1836  21/08/23 16:04:06 git status
+ 1837  21/08/23 16:04:06 git commit -m "add requirements"
+ 1838  21/08/23 16:04:06 git push
+ 1839  21/08/23 16:04:06 git reset
+ 1840  21/08/23 16:04:06 git status
+ 1841  21/08/23 16:04:06 git commit -m "add requirements"
+ 1842  21/08/23 16:04:06 git add .gitignore
+ 1843  21/08/23 16:04:06 git add requirements.txt
+ 1844  21/08/23 16:04:06 git commit -m "add requirements"
+ 1845  21/08/23 16:04:06 git push
+ 1846  21/08/23 16:04:06 git pull
+ 1847  21/08/23 16:04:06 git add .
+ 1848  21/08/23 16:04:06 git commit -m "add requirements"
+ 1849  21/08/23 16:04:06 git push
+ 1850  21/08/23 16:04:06 cd ..
+ 1851  21/08/23 16:04:06 source venv/bin/activate
+ 1852  21/08/23 16:04:06 python --version
+ 1853  21/08/23 16:04:06 git status
+ 1854  21/08/23 16:04:06 git pull
+ 1855  21/08/23 16:04:06 cd ..
+ 1856  21/08/23 16:04:06 ls
+ 1857  21/08/23 16:04:06 source venv/Scripts/bin
+ 1858  21/08/23 16:04:06 source venv/bin/activate
+ 1859  21/08/23 16:04:06 pip list
+ 1860  21/08/23 16:04:06 source venv/bin/activate
+ 1861  21/08/23 16:04:06 dectivate
+ 1862  21/08/23 16:04:06 deactivate
+ 1863  21/08/23 16:04:06 ls
+ 1864  21/08/23 16:04:06 source venv/bin/activate
+ 1865  21/08/23 16:04:06 pip list
+ 1866  21/08/23 16:04:06 ls
+ 1867  21/08/23 16:04:06 cd scripts-camas
+ 1868  21/08/23 16:04:06 ls
+ 1869  21/08/23 16:04:06 python camas_vgg16_2.py vgg16 128 10
+ 1870  21/08/23 16:04:06 python camas_vgg16_2.py vgg16 256 10
+ 1871  21/08/23 16:04:06 python camas_vgg16_2.py vgg16 256 30
+ 1872  21/08/23 16:04:06 python camas_vgg16_2.py vgg1664x64 256 30
+ 1873  21/08/23 16:04:06 python camas_vgg16_2.py vgg1648x48 256 30
+ 1874  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess 128 30
+ 1875  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess 64  30
+ 1876  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess 128  30
+ 1877  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess 25  30
+ 1878  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess 256 30
+ 1879  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess16batch 256 30
+ 1880  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess16batch48x48 256 30
+ 1881  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess16batch48x48 128 30
+ 1882  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess8batch48x48 128 30
+ 1883  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess8batch48x48 256 30
+ 1884  21/08/23 16:04:06 watch -n 2 sensors
+ 1885  21/08/23 16:04:06 ls
+ 1886  21/08/23 16:04:06 cd ..
+ 1887  21/08/23 16:04:06 ls
+ 1888  21/08/23 16:04:06 source venv/bin/activate
+ 1889  21/08/23 16:04:06 cd scripts-cams
+ 1890  21/08/23 16:04:06 cd scripts-camas
+ 1891  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess16batch56x56 256 30
+ 1892  21/08/23 16:04:06 python camas_vgg16_2.py vgg16_3classess16batch52x52 256 30
+ 1893  21/08/23 16:04:06 python camas_resnet.py restne16batch52z52 256 30
+ 1894  21/08/23 16:04:06 python camas_resnet.py restne8batch52z52 256 30
+ 1895  21/08/23 16:04:06 python camas_resnet.py restne8batch48x48 256 30
+ 1896  21/08/23 16:04:06 python camas_resnet.py restne8batch48x48 128 30
+ 1897  21/08/23 16:04:06 python camas_resnet.py restne16batch52x52 256 30
+ 1898  21/08/23 16:04:06 python camas_resnet.py restne16batch52x52 128 30
+ 1899  21/08/23 16:04:06 ls
+ 1900  21/08/23 16:04:06 python read_model.py
+ 1901  21/08/23 16:04:06 cd ..
+ 1902  21/08/23 16:04:06 ls
+ 1903  21/08/23 16:04:06 source venv/bin/activate
+ 1904  21/08/23 16:04:06 cd scripts-camas
+ 1905  21/08/23 16:04:06 read_model.py
+ 1906  21/08/23 16:04:06 python read_model.py
+ 1907  21/08/23 16:04:06 pip list
+ 1908  21/08/23 16:04:06 python read_model.py
+ 1909  21/08/23 16:04:06 /usr/bin/python3 /home/jetson/Documents/pythonscripts/scripts-camas/read_model.py
+ 1910  21/08/23 16:04:06 ls
+ 1911  21/08/23 16:04:06 cd ..
+ 1912  21/08/23 16:04:06 ls
+ 1913  21/08/23 16:04:06 source venv/Scrips/activate
+ 1914  21/08/23 16:04:06 source venv/Scripts/activate
+ 1915  21/08/23 16:04:06 source venv/bin/activate
+ 1916  21/08/23 16:04:06 python read_model.py
+ 1917  21/08/23 16:04:06 cd scripts-camas
+ 1918  21/08/23 16:04:06 python read_model.py
+ 1919  21/08/23 16:04:06 sudo apt-get install pyhton3-sklearn python3-sklearn-lib python3-sklearn-doc
+ 1920  21/08/23 16:04:06 sudo apt-get install pyhton3.6-sklearn python3.6-sklearn-lib python3.6-sklearn-doc
+ 1921  21/08/23 16:04:06 sudo pip3 install sklearn
+ 1922  21/08/23 16:04:06 pip list
+ 1923  21/08/23 16:04:06 pip list
+ 1924  21/08/23 16:04:06 python read_model.py
+ 1925  21/08/23 16:04:06 pip3 install -U sklearn
+ 1926  21/08/23 16:04:06 pip3.6 install -U sklearn
+ 1927  21/08/23 16:04:06 python read_model.py
+ 1928  21/08/23 16:04:06 sudo apt update
+ 1929  21/08/23 16:04:06 pip3 install -U scikit-learn
+ 1930  21/08/23 16:04:06 pip3 install scikit-learn
+ 1931  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1932  21/08/23 16:04:06 pip3 install scikit-learn
+ 1933  21/08/23 16:04:06 pip3 install --no-cache-dir scikit-learn
+ 1934  21/08/23 16:04:06 pip list
+ 1935  21/08/23 16:04:06 python read_model.py
+ 1936  21/08/23 16:04:06 pip3 install --upgrade pip
+ 1937  21/08/23 16:04:06 pip3 uninstall --no-cache-dir scikit-learn
+ 1938  21/08/23 16:04:06 pip list
+ 1939  21/08/23 16:04:06 pip3 uninstall sklearn
+ 1940  21/08/23 16:04:06 pip list
+ 1941  21/08/23 16:04:06 pip3 install --no-cache-dir scikit-learn
+ 1942  21/08/23 16:04:06 python read_model.py
+ 1943  21/08/23 16:04:06 python3 read_model.py
+ 1944  21/08/23 16:04:06 python3.6 read_model.py
+ 1945  21/08/23 16:04:06 python setup.py install
+ 1946  21/08/23 16:04:06 pip3 install --upgrade setuptools
+ 1947  21/08/23 16:04:06 pip3 uninstall scikit-learn
+ 1948  21/08/23 16:04:06 cd ..
+ 1949  21/08/23 16:04:06 git clone https://github.com/scikit-learn/scikit-learn.git
+ 1950  21/08/23 16:04:06 ls
+ 1951  21/08/23 16:04:06 cd scikit-learn
+ 1952  21/08/23 16:04:06 python3 setup.py install
+ 1953  21/08/23 16:04:06 pip3 install scikit-learn==0.23.3
+ 1954  21/08/23 16:04:06 pip3 install scikit-learn==0.22.2
+ 1955  21/08/23 16:04:06 pip3 install scikit-learn==0.22.2.post1
+ 1956  21/08/23 16:04:06 pip3 install Cython
+ 1957  21/08/23 16:04:06 pip3 install scikit-learn==0.22.2.post1
+ 1958  21/08/23 16:04:06 pip3 install scikit-learn==0.22.2
+ 1959  21/08/23 16:04:06 pip3 install scikit-learn==0.22.1
+ 1960  21/08/23 16:04:06 pip3 install scikit-learn
+ 1961  21/08/23 16:04:06 python3 read_model.py
+ 1962  21/08/23 16:04:06 cd ..
+ 1963  21/08/23 16:04:06 cd scripts-camas
+ 1964  21/08/23 16:04:06 python3 read_model.py
+ 1965  21/08/23 16:04:06 python3 camas_vgg16_2.py vgg16 128 30 32 8
+ 1966  21/08/23 16:04:06 python3 camas_vgg16_2.py vgg16 128 30 64 8
+ 1967  21/08/23 16:04:06 cd ..
+ 1968  21/08/23 16:04:06 ls
+ 1969  21/08/23 16:04:06 source venv/bin/activate
+ 1970  21/08/23 16:04:06 cd scripts-camas
+ 1971  21/08/23 16:04:06 python3 camas_vgg16_2.py vgg16 128 30 32 8
+ 1972  21/08/23 16:04:06 python3 camas_vgg16_2.py vgg16 128 30 64 8
+ 1973  21/08/23 16:04:06 python3 camas_vgg16_2.py vgg16 256 30 64 8
+ 1974  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 128 30 64 8
+ 1975  21/08/23 16:04:06 watch -n 2 sensors
+ 1976  21/08/23 16:04:06 ls
+ 1977  21/08/23 16:04:06 cd ..
+ 1978  21/08/23 16:04:06 source venv/bin/activate
+ 1979  21/08/23 16:04:06 pip3 list
+ 1980  21/08/23 16:04:06 cd scripts-camas
+ 1981  21/08/23 16:04:06 ls
+ 1982  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 30 64 8
+ 1983  21/08/23 16:04:06 cd ..
+ 1984  21/08/23 16:04:06 source venv/bin/activate
+ 1985  21/08/23 16:04:06 cd scripts-camas
+ 1986  21/08/23 16:04:06 python3 camas_vgg19.py vgg19 256 30 64 8
+ 1987  21/08/23 16:04:06 python3 camas_vgg16_2.py vgg16 128 30 128 8
+ 1988  21/08/23 16:04:06 watch -n 2 sensors
+ 1989  21/08/23 16:04:06 cd ..
+ 1990  21/08/23 16:04:06 ls
+ 1991  21/08/23 16:04:06 source venv/bin/activate
+ 1992  21/08/23 16:04:06 cd tcc
+ 1993  21/08/23 16:04:06 cls
+ 1994  21/08/23 16:04:06 clear
+ 1995  21/08/23 16:04:06 python vgg19.py --model vgg19 --output_nodes 256 --epochs 50 --img_size 256 --batch_size 8 --learning_rate 0.001
+ 1996  21/08/23 16:04:06 git status
+ 1997  21/08/23 16:04:06 git add .
+ 1998  21/08/23 16:04:06 git commit -a "jetson nano updates"
+ 1999  21/08/23 16:04:06 git commit -m "jetson nano updates"
+ 2000  21/08/23 16:04:06 git push
+ 2001  21/08/23 16:04:06 git pull
+ 2002  21/08/23 16:04:06 python nn5.py --epochs 30 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2003  21/08/23 16:04:06 ls
+ 2004  21/08/23 16:04:06 python nn5.py --epochs 30 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2005  21/08/23 16:04:06 ls
+ 2006  21/08/23 16:04:06 cd ..
+ 2007  21/08/23 16:04:06 ls
+ 2008  21/08/23 16:04:06 source venv/bin/activate
+ 2009  21/08/23 16:04:06 cd tcc
+ 2010  21/08/23 16:04:06 python nn5.py --epochs 30 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2011  21/08/23 16:04:06 cd ..
+ 2012  21/08/23 16:04:06 source venv/bin/activate
+ 2013  21/08/23 16:04:06 cd tcc
+ 2014  21/08/23 16:04:06 python nn5.py --epochs 30 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2015  21/08/23 16:04:06 watch -n 2 sensors
+ 2016  21/08/23 16:04:06 cd ..
+ 2017  21/08/23 16:04:06 source venv/bin/activate
+ 2018  21/08/23 16:04:06 cd tcc
+ 2019  21/08/23 16:04:06 python nn5.py --epochs 30 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2020  21/08/23 16:04:06 python nn5.py --epochs 30 --img_size 64 --batch_size 8 --learning_rate 0.001
+ 2021  21/08/23 16:04:06 python nn5.py --epochs 30 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2022  21/08/23 16:04:06 python nn5.py --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2023  21/08/23 16:04:06 cd ..
+ 2024  21/08/23 16:04:06 source venv/bin/activate
+ 2025  21/08/23 16:04:06 cd tcc
+ 2026  21/08/23 16:04:06 python nn5.py --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2027  21/08/23 16:04:06 python vgg16.py --model vgg16 --output_nodes 256 --epochs 50 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2028  21/08/23 16:04:06 python nn5.py --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2029  21/08/23 16:04:06 git status
+ 2030  21/08/23 16:04:06 git add .
+ 2031  21/08/23 16:04:06 git commit -m "add running results"
+ 2032  21/08/23 16:04:06 git push
+ 2033  21/08/23 16:04:06 git pull
+ 2034  21/08/23 16:04:06 git add .
+ 2035  21/08/23 16:04:06 git commit -m "just commit"
+ 2036  21/08/23 16:04:06 git push
+ 2037  21/08/23 16:04:06 git pull
+ 2038  21/08/23 16:04:06 git push
+ 2039  21/08/23 16:04:06 git pull
+ 2040  21/08/23 16:04:06 git pul
+ 2041  21/08/23 16:04:06 git pull
+ 2042  21/08/23 16:04:06 git add 2023-08-11_images
+ 2043  21/08/23 16:04:06 git commit -m "add test images"
+ 2044  21/08/23 16:04:06 git push
+ 2045  21/08/23 16:04:06 git add results_h5
+ 2046  21/08/23 16:04:06 git commit -m "add trained models"
+ 2047  21/08/23 16:04:06 git push
+ 2048  21/08/23 16:04:06 git resey
+ 2049  21/08/23 16:04:06 git reset
+ 2050  21/08/23 16:04:06 git status
+ 2051  21/08/23 16:04:06 git add .
+ 2052  21/08/23 16:04:06 git restore --staged results_h5
+ 2053  21/08/23 16:04:06 git status
+ 2054  21/08/23 16:04:06 git add .
+ 2055  21/08/23 16:04:06 git commit -m "add trained models"
+ 2056  21/08/23 16:04:06 git push
+ 2057  21/08/23 16:04:06 git restore --staged results_h5
+ 2058  21/08/23 16:04:06 git reset results_h5
+ 2059  21/08/23 16:04:06 git rm --cached results_h5
+ 2060  21/08/23 16:04:06 git add .
+ 2061  21/08/23 16:04:06 git commit -m "add trained models"
+ 2062  21/08/23 16:04:06 git push
+ 2063  21/08/23 16:04:06 ls
+ 2064  21/08/23 16:04:06 cd ..
+ 2065  21/08/23 16:04:06 source venv/bin/activate
+ 2066  21/08/23 16:04:06 cd tcc
+ 2067  21/08/23 16:04:06 python vgg19.py --model vgg19 --output_nodes 128 --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2068  21/08/23 16:04:06 watch -n 2 sensors
+ 2069  21/08/23 16:04:06 cd ..
+ 2070  21/08/23 16:04:06 source venv/bin/activate
+ 2071  21/08/23 16:04:06 cd tcc
+ 2072  21/08/23 16:04:06 python vgg19.py --model vgg19 --output_nodes 128 --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2073  21/08/23 16:04:06 git pull
+ 2074  21/08/23 16:04:06 cd ..
+ 2075  21/08/23 16:04:06 source venv/bin/activate
+ 2076  21/08/23 16:04:06 cd tcc
+ 2077  21/08/23 16:04:06 python nn2.py --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2078  21/08/23 16:04:06 git pull
+ 2079  21/08/23 16:04:06 git add .
+ 2080  21/08/23 16:04:06 git commit -m "nn2 results"
+ 2081  21/08/23 16:04:06 git pull
+ 2082  21/08/23 16:04:06 git push
+ 2083  21/08/23 16:04:06 git add .
+ 2084  21/08/23 16:04:06 git commit -m "nn2 results"
+ 2085  21/08/23 16:04:06 git push
+ 2086  21/08/23 16:04:06 git config http.postBuffer 524288000
+ 2087  21/08/23 16:04:06 git status
+ 2088  21/08/23 16:04:06 git rebase
+ 2089  21/08/23 16:04:06 git reset --hard
+ 2090  21/08/23 16:04:06 git add .
+ 2091  21/08/23 16:04:06 git commit -m "add nn2 results"
+ 2092  21/08/23 16:04:06 git push
+ 2093  21/08/23 16:04:06 git push origin HEAD:main
+ 2094  21/08/23 16:04:06 git add .
+ 2095  21/08/23 16:04:06 git commit -m "add nn2 results"
+ 2096  21/08/23 16:04:06 git push origin HEAD:main
+ 2097  21/08/23 16:04:06 python nn3.py --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2098  21/08/23 16:04:06 watch -n 2 sensors
+ 2099  21/08/23 16:04:06 git status
+ 2100  21/08/23 16:04:06 git add .
+ 2101  21/08/23 16:04:06 git commit -m "nn2 results"
+ 2102  21/08/23 16:04:06 git push
+ 2103  21/08/23 16:04:06 git push origin HEAD:main
+ 2104  21/08/23 16:04:06 git pull
+ 2105  21/08/23 16:04:06 git pull origin main
+ 2106  21/08/23 16:04:06 cd ..
+ 2107  21/08/23 16:04:06 source venv/bin/activate
+ 2108  21/08/23 16:04:06 cd tcc
+ 2109  21/08/23 16:04:06 python get_camera.py
+ 2110  21/08/23 16:04:06 pip list
+ 2111  21/08/23 16:04:06 pip install --upgrade pip
+ 2112  21/08/23 16:04:06 pip3 install --upgrade pip
+ 2113  21/08/23 16:04:06 pip3 install opencv-python
+ 2114  21/08/23 16:04:06 pip3 install opencv-python-aarch64
+ 2115  21/08/23 16:04:06 deactivate
+ 2116  21/08/23 16:04:06 pip list
+ 2117  21/08/23 16:04:06 ca ..
+ 2118  21/08/23 16:04:06 cd.. 
+ 2119  21/08/23 16:04:06 cd ..
+ 2120  21/08/23 16:04:06 source venv/bin/activate
+ 2121  21/08/23 16:04:06 sudo apt-get install python3-dev python3-pip python3-numpy
+ 2122  21/08/23 16:04:06 sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev  libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev protobuf-compiler libgflags-dev libgoogle-glog-dev libblas-dev libhdf5-serial-dev liblmdb-dev libleveldb-dev liblapack-dev libsnappy-dev libprotobuf-dev libopenblas-dev libgtk2.0-dev libboost-dev libboost-all-dev libeigen3-dev libatlas-base-dev libne10-10 libne10-dev
+ 2123  21/08/23 16:04:06 pip3 install neon
+ 2124  21/08/23 16:04:06 sudo apt-get install libneon27-dev
+ 2125  21/08/23 16:04:06 sudo apt-get install libneon27-gnutls-dev
+ 2126  21/08/23 16:04:06 cd ~/
+ 2127  21/08/23 16:04:06 wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.0.zip
+ 2128  21/08/23 16:04:06 unzip opencv-3.4.0.zip
+ 2129  21/08/23 16:04:06 ls
+ 2130  21/08/23 16:04:06 unzip opencv.zip
+ 2131  21/08/23 16:04:06 wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.0.zip
+ 2132  21/08/23 16:04:06 unzip opencv_contrib-3.4.0.zip
+ 2133  21/08/23 16:04:06 ls
+ 2134  21/08/23 16:04:06 unzip opencv_contrib.zip
+ 2135  21/08/23 16:04:06 ls
+ 2136  21/08/23 16:04:06 cd ~/opencv-3.4.0
+ 2137  21/08/23 16:04:06 mkdir build
+ 2138  21/08/23 16:04:06 cd build
+ 2139  21/08/23 16:04:06 cmake -D CMAKE_BUILD_TYPE=RELEASE -D ENABLE_NEON=ON -D ENABLE_TBB=ON -D ENABLE_IPP=ON -D ENABLE_VFVP3=ON -D WITH_OPENMP=ON -D WITH_CSTRIPES=ON -D WITH_OPENCL=ON -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/root/[username]/opencv_contrib-3.4.0/modules/ ..
+ 2140  21/08/23 16:04:06 make
+ 2141  21/08/23 16:04:06 cmake -D CMAKE_BUILD_TYPE=RELEASE -D ENABLE_NEON=ON -D ENABLE_TBB=ON -D ENABLE_IPP=ON -D ENABLE_VFVP3=ON -D WITH_OPENMP=ON -D WITH_CSTRIPES=ON -D WITH_OPENCL=ON -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/root/[username]/opencv_contrib-3.4.0/modules/ ..
+ 2142  21/08/23 16:04:06 deactivate
+ 2143  21/08/23 16:04:06 pip list
+ 2144  21/08/23 16:04:06 ls
+ 2145  21/08/23 16:04:06 cd ..
+ 2146  21/08/23 16:04:06 ls
+ 2147  21/08/23 16:04:06 cd ..
+ 2148  21/08/23 16:04:06 ls
+ 2149  21/08/23 16:04:06 pip3 install opencv-3.4.0
+ 2150  21/08/23 16:04:06 cd opencv-3.4.0
+ 2151  21/08/23 16:04:06 ls
+ 2152  21/08/23 16:04:06 cd ~/
+ 2153  21/08/23 16:04:06 sudo apt-get install python3-opencv
+ 2154  21/08/23 16:04:06 pip list
+ 2155  21/08/23 16:04:06 cd ..
+ 2156  21/08/23 16:04:06 ls
+ 2157  21/08/23 16:04:06 source venv/bin/activate
+ 2158  21/08/23 16:04:06 sudo pip3 install -U pip python3-opencv
+ 2159  21/08/23 16:04:06 python3 -m pip install --upgrade pip
+ 2160  21/08/23 16:04:06 sudo apt-get install python3-opencv
+ 2161  21/08/23 16:04:06 pip list
+ 2162  21/08/23 16:04:06 sudo pip3 install -U pip python-opencv
+ 2163  21/08/23 16:04:06 pip3 install opencv-contrib-python
+ 2164  21/08/23 16:04:06 python -c 'import cv2; print(cv2.__version__)
+ 2165  21/08/23 16:04:06 deactivate
+ 2166  21/08/23 16:04:06 python -c 'import cv2; print(cv2.__version__)
+ 2167  21/08/23 16:04:06 python -c 'import cv2; print(cv2.__version__)'
+ 2168  21/08/23 16:04:06 source venv/bin/activate
+ 2169  21/08/23 16:04:06 python -c 'import cv2; print(cv2.__version__)'
+ 2170  21/08/23 16:04:06 deactivate
+ 2171  21/08/23 16:04:06 cd tcc
+ 2172  21/08/23 16:04:06 ls
+ 2173  21/08/23 16:04:06 python get_camera.py
+ 2174  21/08/23 16:04:06 git status
+ 2175  21/08/23 16:04:06 git add .
+ 2176  21/08/23 16:04:06 git commit -m "changes to get camera"
+ 2177  21/08/23 16:04:06 git push
+ 2178  21/08/23 16:04:06 git push origin HEAD:main
+ 2179  21/08/23 16:04:06 git pull
+ 2180  21/08/23 16:04:06 git pull origin main
+ 2181  21/08/23 16:04:06 python get_camera.py
+ 2182  21/08/23 16:04:06 watch -n 2 sensors > teste.txt
+ 2183  21/08/23 16:04:06 gedit teste.txt [A
+ 2184  21/08/23 16:04:06 pwd
+ 2185  21/08/23 16:04:06 watch -n 5 sensors
+ 2186  21/08/23 16:04:06 watch -n 5 sensors > teste.txt
+ 2187  21/08/23 16:04:06 watch -n  sensors
+ 2188  21/08/23 16:04:06 watch -n 5  sensors
+ 2189  21/08/23 16:04:06 jtop
+ 2190  21/08/23 16:04:06 cd tcc
+ 2191  21/08/23 16:04:06 cd ..
+ 2192  21/08/23 16:04:06 source venv/bin/activate
+ 2193  21/08/23 16:04:06 cd tcc
+ 2194  21/08/23 16:04:06 python vgg19.py vgg19-2layers --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2195  21/08/23 16:04:06 python vgg19.py --model vgg19-2layers --output_nodes 256 --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2196  21/08/23 16:04:06 watch -n 2 sensors
+ 2197  21/08/23 16:04:06 cd ..
+ 2198  21/08/23 16:04:06 source venv/bin/activate
+ 2199  21/08/23 16:04:06 cd tcc
+ 2200  21/08/23 16:04:06 python vgg19.py --model vgg19 --output_nodes 256 --epochs 1 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2201  21/08/23 16:04:06 cd ..
+ 2202  21/08/23 16:04:06 source venv/bin/activate
+ 2203  21/08/23 16:04:06 cd tcc
+ 2204  21/08/23 16:04:06 python vgg19.py --model vgg19 --output_nodes 256 --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2205  21/08/23 16:04:06 python vgg19.py --model vgg19_2 --output_nodes 256 --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2206  21/08/23 16:04:06 python vgg19.py --model vgg19_3 --output_nodes 256 --epochs 100 --img_size 128 --batch_size 8 --learning_rate 0.001
+ 2207  21/08/23 16:04:06 watch -n 2 sensors
+ 2208  21/08/23 16:04:06 git pull
+ 2209  21/08/23 16:04:06 git pull origin main
+ 2210  21/08/23 16:04:06 gti add .
+ 2211  21/08/23 16:04:06 git add .
+ 2212  21/08/23 16:04:06 git commit "add vgg19 results"
+ 2213  21/08/23 16:04:06 git commit -m~ "add vgg19 results"
+ 2214  21/08/23 16:04:06 git commit -m "add vgg19 results"
+ 2215  21/08/23 16:04:06 git push
+ 2216  21/08/23 16:04:06 git push origin HEAD:main
+ 2217  21/08/23 16:04:06 git reset
+ 2218  21/08/23 16:04:06 git reset -hard
+ 2219  21/08/23 16:04:06 git reset --hard
+ 2220  21/08/23 16:04:06 git status
+ 2221  21/08/23 16:04:06 git rebase --continue
+ 2222  21/08/23 16:04:06 git status
+ 2223  21/08/23 16:04:06 git add results_txt
+ 2224  21/08/23 16:04:06 git status
+ 2225  21/08/23 16:04:06 git commit -m "add vgg19 result:
+ 2226  21/08/23 16:04:06 git commit -m "add vgg19 result"
+ 2227  21/08/23 16:04:06 git status
+ 2228  21/08/23 16:04:06 git reset --soft HEAD^
+ 2229  21/08/23 16:04:06 git status
+ 2230  21/08/23 16:04:06 git add results_txt vgg19.py
+ 2231  21/08/23 16:04:06 git status
+ 2232  21/08/23 16:04:06 git commit -m "add vgg19 results"
+ 2233  21/08/23 16:04:06 git push origin HEAD:main
+ 2234  21/08/23 16:06:59 history > file.txt
+ 2235  21/08/23 16:08:26 HISTTIMEFORMAT="%d/%m/%y %T "
+ 2236  21/08/23 16:08:58 history > file.txt

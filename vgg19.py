@@ -7,10 +7,10 @@ import datetime
 
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
-import tensorflow as tf
 from tensorflow.keras.applications import VGG19
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.callbacks import *
+import tensorflow as tf
 from PIL import Image
 
 device = tf.config.list_physical_devices('GPU')
@@ -32,11 +32,11 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
         vgg_model,
         tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(num_output_nodes, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
+        #tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
-        tf.keras.layers.BatchNormalization(),
+        #tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_output_nodes//4, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
+        #tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 
@@ -62,8 +62,8 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
     #     tf.keras.layers.Dense(num_classes, activation='softmax')
     # ])
 
-    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
-    model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+    # optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    # model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
     # create data generators for train, test, and validation sets
     train_data_gen = ImageDataGenerator(
@@ -108,12 +108,18 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
             class_mode='categorical'
         )
 
+    early_stopping = EarlyStopping(monitor='val_loss', mode='auto', patience=10)
+
+    #lr_scheduler = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.0001)
+
+    optimizer = tf.keras.optimizers.Adam(learning_rate=lr_scheduler)
+
+    model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
     # Set the number of steps per epoch
     train_steps = len(train_data_gen)
     test_steps = len(test_data_gen)
     val_steps = len(val_data_gen)
-
-    early_stopping = EarlyStopping(patience=5)
 
     print(train_steps, test_steps, val_steps)
 
@@ -123,7 +129,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
         validation_data=val_data_gen,
         validation_steps=val_steps,
         epochs=num_epochs,
-        callbacks=[early_stopping]
+        callbacks=[early_stopping, lr_scheduler]
     )
     
     epoch_list = list(range(1, num_epochs + 1))
