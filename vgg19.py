@@ -27,14 +27,40 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
     for layer in vgg_model.layers:
         layer.trainable = False
 
+    # 3
     model = tf.keras.Sequential([
         vgg_model,
-         tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(256, activation='relu'),
-        tf.keras.layers.Dense(256, activation='relu'), 
-        tf.keras.layers.Dropout(0.1),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(num_output_nodes, activation='relu'),
+        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
+        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.Dense(num_output_nodes//4, activation='relu'),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
+
+    # 2
+    #   model = tf.keras.Sequential([
+    #     vgg_model,
+    #     tf.keras.layers.Flatten(),
+    #     tf.keras.layers.Dense(num_output_nodes, activation='relu'),
+    #     tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_output_nodes, activation='relu'), 
+    #     tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_classes, activation='softmax')
+    # ])
+
+    # 1
+    # model = tf.keras.Sequential([
+    #     vgg_model,
+    #     tf.keras.layers.Flatten(),
+    #     tf.keras.layers.Dense(num_output_nodes, activation='relu'),
+    #     tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
+    #     tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_classes, activation='softmax')
+    # ])
 
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
