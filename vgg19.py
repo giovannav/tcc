@@ -108,11 +108,15 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
             class_mode='categorical'
         )
 
-    early_stopping = EarlyStopping(monitor='val_loss', mode='auto', patience=10)
+    early_stopping = EarlyStopping(monitor='val_loss', mode='auto', patience=10, verbose=1)
 
-    #lr_scheduler = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.0001)
+    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.0001, verbose=1)
 
-    optimizer = tf.keras.optimizers.Adam(learning_rate=lr_scheduler)
+    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+
+    model_name = f'model-{model_name}-outputnodes-{num_output_nodes}-epochs-{num_epochs}-imgshape-{img_shape}-batchsize-{batch_size}-{timestamp}'
+    
+    csvlogger = CSVLogger(filename=f'results_txt/{model_name}.csv', separator=',', append=False)
 
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
@@ -129,7 +133,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
         validation_data=val_data_gen,
         validation_steps=val_steps,
         epochs=num_epochs,
-        callbacks=[early_stopping, lr_scheduler]
+        callbacks=[early_stopping, lr_scheduler, csvlogger]
     )
     
     epoch_list = list(range(1, num_epochs + 1))
@@ -143,7 +147,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
     test_loss, test_accuracy = model.evaluate(test_data_gen, steps=test_steps)
     
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    model_name = f'model-{model_name}-outputnodes-{num_output_nodes}-epochs-{num_epochs}-imgshape-{img_shape}-batchsize-{batch_size}-{timestamp}'
+    
     model.save(f'results_h5/{model_name}.h5')
 
     # evaluating the model with recall, precision and f1 score
