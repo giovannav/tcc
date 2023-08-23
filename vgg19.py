@@ -32,11 +32,11 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
         vgg_model,
         tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(num_output_nodes, activation='relu'),
-        #tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
-        #tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_output_nodes//4, activation='relu'),
-        #tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 
@@ -114,6 +114,8 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
 
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
 
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
     model_name = f'model-{model_name}-outputnodes-{num_output_nodes}-epochs-{num_epochs}-imgshape-{img_shape}-batchsize-{batch_size}-{timestamp}'
     
     csvlogger = CSVLogger(filename=f'results_txt/{model_name}.csv', separator=',', append=False)
@@ -145,9 +147,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
     
     # evaluate the model on the test set
     test_loss, test_accuracy = model.evaluate(test_data_gen, steps=test_steps)
-    
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    
+        
     model.save(f'results_h5/{model_name}.h5')
 
     # evaluating the model with recall, precision and f1 score
