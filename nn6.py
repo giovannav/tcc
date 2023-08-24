@@ -23,7 +23,7 @@ num_classes = 4
 def load_model(num_epochs, img_shape, batch_size, learning_rate):
         
     variations = [
-        {"variation": "NN5V2-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
+        {"variation": "NN6-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
         # {"variation": "NN5V2-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]},
         ]
 
@@ -43,7 +43,6 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
             model.add(tf.keras.layers.Dropout(0.1))
 
         model.add(tf.keras.layers.Flatten())
-        model.add(tf.keras.layers.Dense(256, activation='relu'))
         model.add(tf.keras.layers.Dense(256, activation='relu'))
         model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 

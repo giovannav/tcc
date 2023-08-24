@@ -34,12 +34,15 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         model = tf.keras.Sequential()
         model.add(tf.keras.layers.Conv2D(cells[0], 3, padding='same', activation='relu', input_shape=(img_shape, img_shape, 3)))
         model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.Dropout(0.3))
         
         for i in range(1, num_layers):
             model.add(tf.keras.layers.Conv2D(cells[i], 3, padding='same', activation='relu'))
             model.add(tf.keras.layers.MaxPooling2D())
+            model.add(tf.keras.layers.Dropout(0.3))
 
         model.add(tf.keras.layers.Flatten())
+        model.add(tf.keras.layers.Dense(256, activation='relu'))
         model.add(tf.keras.layers.Dense(128, activation='relu'))
         model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 
@@ -86,7 +89,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
                 class_mode='categorical'
             )
 
-        early_stopping = EarlyStopping(patience=16, verbose=1)
+        early_stopping = EarlyStopping(patience=12, verbose=1)
 
         lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.00001, verbose=1)
 
