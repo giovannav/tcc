@@ -7,20 +7,21 @@ import datetime
 
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
-import tensorflow as tf
+from tensorflow.keras.applications import VGG19
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.callbacks import *
+import tensorflow as tf
 from PIL import Image
 
 device = tf.config.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(device[0], True)
 tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
-
+# set the number of classes
+num_classes = 4
 
 def load_model(num_epochs, img_shape, batch_size, learning_rate):
-    # set the number of classes
-    num_classes = 4
+    
         
     variations = [
         {"variation": "NN3-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]}, 
@@ -92,20 +93,19 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
                 class_mode='categorical'
             )
         
-        def lr_schedule(epoch):
-            if epoch < num_epochs * 0.5:
-                return learning_rate
-            elif epoch < num_epochs * 0.8:
-                return learning_rate * 0.1
-            else:
-                return learning_rate * 0.01
-            
+        early_stopping = EarlyStopping(patience=16, verbose=1)
+
+        lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.00001, verbose=1)
+
         optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+        model_name = f'model-{model_name}-epochs-{num_epochs}-imgshape-{img_shape}-batchsize-{batch_size}-{timestamp}'
+    
+        csvlogger = CSVLogger(filename=f'results_txt/{model_name}.csv', separator=',', append=False)
+
         model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
-
-        lr_scheduler = tf.keras.callbacks.LearningRateScheduler(lr_schedule)
-
-        early_stopping = EarlyStopping(patience=10)
 
         # Set the number of steps per epoch
         train_steps = len(train_data_gen)
@@ -120,7 +120,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
             validation_data=val_data_gen,
             validation_steps=val_steps,
             epochs=num_epochs,
-            callbacks=[early_stopping, lr_scheduler]
+            callbacks=[early_stopping, lr_scheduler, csvlogger]
         )
         
         epoch_list = list(range(1, num_epochs + 1))
@@ -144,7 +144,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         class_names = test_data_gen.class_indices
         class_names = list(class_names.keys())
         
-        desired_num_predictions = 364 #len(test_data_gen)
+        desired_num_predictions = 348 #len(test_data_gen)
 
         for x, y in test_data_gen:
             batch_size = x.shape[0]

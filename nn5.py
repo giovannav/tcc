@@ -51,9 +51,6 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         model.add(tf.keras.layers.Dense(128, activation='relu'))
         model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 
-        # optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
-        # model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
-
         # Create data generators for train, test, and validation sets
         train_data_gen = ImageDataGenerator(
             rescale=1./255,
@@ -97,7 +94,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
                 class_mode='categorical'
             )
 
-        early_stopping = EarlyStopping(patience=10, verbose=1)
+        early_stopping = EarlyStopping(patience=16, verbose=1)
 
         lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.00001, verbose=1)
 
@@ -148,7 +145,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         class_names = test_data_gen.class_indices
         class_names = list(class_names.keys())
         
-        desired_num_predictions = 364 #len(test_data_gen)
+        desired_num_predictions = 348 #len(test_data_gen)
 
         for x, y in test_data_gen:
             batch_size = x.shape[0]

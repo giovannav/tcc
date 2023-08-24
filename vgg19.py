@@ -40,31 +40,6 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 
-    # 2
-    #   model = tf.keras.Sequential([
-    #     vgg_model,
-    #     tf.keras.layers.Flatten(),
-    #     tf.keras.layers.Dense(num_output_nodes, activation='relu'),
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.Dense(num_output_nodes, activation='relu'), 
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.Dense(num_classes, activation='softmax')
-    # ])
-
-    # 1
-    # model = tf.keras.Sequential([
-    #     vgg_model,
-    #     tf.keras.layers.Flatten(),
-    #     tf.keras.layers.Dense(num_output_nodes, activation='relu'),
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.Dense(num_classes, activation='softmax')
-    # ])
-
-    # optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
-    # model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
-
     # create data generators for train, test, and validation sets
     train_data_gen = ImageDataGenerator(
         rescale=1./255,
@@ -108,9 +83,9 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
             class_mode='categorical'
         )
 
-    early_stopping = EarlyStopping(monitor='val_loss', mode='auto', patience=10, verbose=1)
+    early_stopping = EarlyStopping(patience=16, verbose=1)
 
-    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.0001, verbose=1)
+    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.00001, verbose=1)
 
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
 
@@ -158,7 +133,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
     class_names = test_data_gen.class_indices
     class_names = list(class_names.keys())
     
-    desired_num_predictions = 364 #len(test_data_gen)
+    desired_num_predictions = 348 #len(test_data_gen)
 
     for x, y in test_data_gen:
         batch_size = x.shape[0]

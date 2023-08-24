@@ -35,9 +35,6 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 
-    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
-    model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
-
     # Create data generators for train, test, and validation sets
     train_data_gen = ImageDataGenerator(
         rescale=1./255,
@@ -81,12 +78,24 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
             class_mode='categorical'
         )
 
+    early_stopping = EarlyStopping(patience=16, verbose=1)
+
+    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.00001, verbose=1)
+
+    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+    model_name = f'model-{model_name}-epochs-{num_epochs}-imgshape-{img_shape}-batchsize-{batch_size}-{timestamp}'
+    
+    csvlogger = CSVLogger(filename=f'results_txt/{model_name}.csv', separator=',', append=False)
+
+    model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
     # Set the number of steps per epoch
     train_steps = len(train_data_gen)
     test_steps = len(test_data_gen)
     val_steps = len(val_data_gen)
-
-    early_stopping = EarlyStopping(patience=5)
 
     print(train_steps, test_steps, val_steps)
 
@@ -96,7 +105,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
         validation_data=val_data_gen,
         validation_steps=val_steps,
         epochs=num_epochs,
-        callbacks=[early_stopping]
+        callbacks=[early_stopping, lr_scheduler, csvlogger]
     )
     
     epoch_list = list(range(1, num_epochs + 1))

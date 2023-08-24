@@ -7,9 +7,10 @@ import datetime
 
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import numpy as np
-import tensorflow as tf
+from tensorflow.keras.applications import VGG19
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.callbacks import *
+import tensorflow as tf
 from PIL import Image
 
 device = tf.config.list_physical_devices('GPU')
@@ -22,8 +23,8 @@ num_classes = 4
 def load_model(num_epochs, img_shape, batch_size, learning_rate):
         
     variations = [
-        {"variation": "NN5-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
-        # {"variation": "NN5-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]},
+        {"variation": "NN5V2-3-layers-256-128-64", "layers": 3, "cells": [256, 128, 64]},
+        # {"variation": "NN5V2-4-layers-256-128-64-32", "layers": 4, "cells": [256, 128, 64, 32]},
         ]
 
     for variation in variations:
@@ -45,9 +46,6 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         model.add(tf.keras.layers.Dense(256, activation='relu'))
         model.add(tf.keras.layers.Dense(256, activation='relu'))
         model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
-
-        optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
-        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
         # Create data generators for train, test, and validation sets
         train_data_gen = ImageDataGenerator(
@@ -91,13 +89,25 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
                 batch_size=batch_size,
                 class_mode='categorical'
             )
+        
+        early_stopping = EarlyStopping(patience=16, verbose=1)
+
+        lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.00001, verbose=1)
+
+        optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+        model_name = f'model-{model_name}-epochs-{num_epochs}-imgshape-{img_shape}-batchsize-{batch_size}-{timestamp}'
+    
+        csvlogger = CSVLogger(filename=f'results_txt/{model_name}.csv', separator=',', append=False)
+
+        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
         # Set the number of steps per epoch
         train_steps = len(train_data_gen)
         test_steps = len(test_data_gen)
         val_steps = len(val_data_gen)
-
-        early_stopping = EarlyStopping(patience=10)
 
         print(train_steps, test_steps, val_steps)
 
@@ -107,7 +117,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
             validation_data=val_data_gen,
             validation_steps=val_steps,
             epochs=num_epochs,
-            callbacks=[early_stopping]
+            callbacks=[early_stopping, lr_scheduler, csvlogger]
         )
         
         epoch_list = list(range(1, num_epochs + 1))
@@ -131,7 +141,7 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         class_names = test_data_gen.class_indices
         class_names = list(class_names.keys())
         
-        desired_num_predictions = 364 #len(test_data_gen)
+        desired_num_predictions = 348 #len(test_data_gen)
 
         for x, y in test_data_gen:
             batch_size = x.shape[0]
