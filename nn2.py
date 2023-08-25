@@ -9,6 +9,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score, confusion_m
 import numpy as np
 from tensorflow.keras.applications import VGG19
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.regularizers import l2
 from tensorflow.keras.callbacks import *
 import tensorflow as tf
 from PIL import Image
@@ -34,16 +35,16 @@ def load_model(num_epochs, img_shape, batch_size, learning_rate):
         model = tf.keras.Sequential()
         model.add(tf.keras.layers.Conv2D(cells[0], 3, padding='same', activation='relu', input_shape=(img_shape, img_shape, 3)))
         model.add(tf.keras.layers.MaxPooling2D())
-        model.add(tf.keras.layers.Dropout(0.3))
+        model.add(tf.keras.layers.Dropout(0.2))
         
         for i in range(1, num_layers):
-            model.add(tf.keras.layers.Conv2D(cells[i], 3, padding='same', activation='relu'))
+            model.add(tf.keras.layers.Conv2D(cells[i], 3, padding='same', activation='relu', kernel_regularizer=l2(0.001)))
             model.add(tf.keras.layers.MaxPooling2D())
-            model.add(tf.keras.layers.Dropout(0.3))
+            model.add(tf.keras.layers.Dropout(0.2))
 
         model.add(tf.keras.layers.Flatten())
-        model.add(tf.keras.layers.Dense(256, activation='relu'))
-        model.add(tf.keras.layers.Dense(128, activation='relu'))
+        model.add(tf.keras.layers.Dense(128, activation='relu', kernel_regularizer=l2(0.001)))
+        model.add(tf.keras.layers.Dense(64, activation='relu', kernel_regularizer=l2(0.001)))
         model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 
         # Create data generators for train, test, and validation sets

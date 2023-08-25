@@ -29,15 +29,25 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
 
     model = tf.keras.Sequential([
         vgg_model,
-        tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(num_output_nodes, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
-        tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(num_output_nodes//4, activation='relu'),
-        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.GlobalAvgPool2D(),
+        tf.keras.layers.Dense(512, activation='relu'),
+        tf.keras.layers.Dense(128, activation='relu'), 
+        tf.keras.layers.Dropout(0.2),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
+
+
+    # model = tf.keras.Sequential([
+    #     vgg_model,
+    #     tf.keras.layers.Flatten(),
+    #     tf.keras.layers.Dense(num_output_nodes, activation='relu'),
+    #     tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_output_nodes//2, activation='relu'), 
+    #     tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_output_nodes//4, activation='relu'),
+    #     tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_classes, activation='softmax')
+    # ])
 
     # Create data generators for train, test, and validation sets
     train_data_gen = ImageDataGenerator(
@@ -82,9 +92,9 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
             class_mode='categorical'
         )
     
-    early_stopping = EarlyStopping(patience=16, verbose=1)
+    early_stopping = EarlyStopping(patience=12, verbose=1)
 
-    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, min_lr=0.00001, verbose=1)
+    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=6, min_lr=0.00001, verbose=1)
 
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
 
