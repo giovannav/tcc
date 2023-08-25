@@ -24,9 +24,10 @@ while True:
     # result = classes[predictions_single.argmax()]
     # print(result)
     
-    cv2.imshow('img1',frame) #display the captured image
+    cv2.imshow('img1', frame) #display the captured image
     if cv2.waitKey(1) & 0xFF == ord('y'): #save on pressing 'y' 
-        cv2.imwrite('images/camas.png', frame)
+        img  = cv2.resize(frame, (128, 128), interpolation = cv2.INTER_AREA)
+        cv2.imwrite('images/camas.jpg', img)
         
     if cv2.waitKey(1) & 0xFF == ord('q'): #leave on pressing 'q' 
         cv2.destroyAllWindows()
