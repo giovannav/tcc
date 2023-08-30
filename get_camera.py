@@ -4,6 +4,7 @@
 # from tensorflow.keras.models import load_model
 # from tensorflow.keras.preprocessing import image
 import cv2
+import datetime as datetime
 # os.environ['XLA_PYTHON_CLIENT_PREALLOCATE'] = 'false'
 # os.environ['XLA_PYTHON_CLIENT_ALLOCATOR'] = 'platform'
 # os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
@@ -23,11 +24,13 @@ while True:
     # classes = ['Frente+Umida', 'Fundo+Intermediaria', 'Meio+Seca', 'camendoim6sCenL1'] 
     # result = classes[predictions_single.argmax()]
     # print(result)
-    
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+
     cv2.imshow('img1', frame) #display the captured image
     if cv2.waitKey(1) & 0xFF == ord('y'): #save on pressing 'y' 
         img  = cv2.resize(frame, (128, 128), interpolation = cv2.INTER_AREA)
-        cv2.imwrite('images/camas.jpg', img)
+        name = 'images/camas'+timestamp+'.jpg'
+        cv2.imwrite(name, img)
         
     if cv2.waitKey(1) & 0xFF == ord('q'): #leave on pressing 'q' 
         cv2.destroyAllWindows()

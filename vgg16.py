@@ -92,7 +92,7 @@ def load_model(model_name, num_output_nodes, num_epochs, img_shape, batch_size, 
             class_mode='categorical'
         )
     
-    early_stopping = EarlyStopping(patience=12, verbose=1)
+    early_stopping = EarlyStopping(patience=10, verbose=1)
 
     lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=6, min_lr=0.00001, verbose=1)
 
