@@ -17,21 +17,37 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCh
 
 def build_model(input_shape, num_classes):
         model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Conv2D(256, 3, padding='same', activation='relu', input_shape=input_shape))
+        model.add(tf.keras.layers.Conv2D(filters=16, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
-    
-        model.add(tf.keras.layers.Conv2D(128, 3, padding='same', activation='relu'))
-        model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(64, 3, padding='same', activation='relu'))
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
-
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
         model.add(tf.keras.layers.Flatten())
-        model.add(tf.keras.layers.Dense(128, activation='relu'))
-        model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
+        model.add(tf.keras.layers.Dense(200))
+        model.add(tf.keras.layers.Activation('relu'))
+        model.add(tf.keras.layers.Dropout(0.5))
+
+        model.add(tf.keras.layers.Dense(num_classes))
+        model.add(tf.keras.layers.Activation('softmax'))
         
         return model
 
@@ -79,7 +95,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1)
     lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.00001, verbose=1)
-    csv_logger = CSVLogger(filename=f'results_csv/NN3-{timestamp_start}.csv', separator=',', append=False)
+    csv_logger = CSVLogger(filename=f'results_csv/NN7-{timestamp_start}.csv', separator=',', append=False)
     
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
@@ -109,7 +125,7 @@ def evaluate_model(model, history, test_data_gen, timestamp_start, num_epochs):
     val_loss_list = history.history['val_loss']
         
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    model_name = f'NN3-{timestamp_start}-{timestamp}'
+    model_name = f'NN7-{timestamp_start}-{timestamp}'
     model.save(f'results_h5/{model_name}.h5')
 
     predictions = []
