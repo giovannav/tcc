@@ -5,29 +5,29 @@ import argparse
 import datetime
 
 import numpy as np
-import tensorflow as tf
 from PIL import Image
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
+import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
-# device = tf.config.list_physical_devices('GPU')
-# tf.config.experimental.set_memory_growth(device[0], True)
-# tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
+device = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(device[0], True)
+tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
         model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Conv2D(256, 3, padding='same', activation='relu', input_shape=input_shape))
-        model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
+        #model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
     
-        model.add(tf.keras.layers.Conv2D(128, 3, padding='same', activation='relu'))
-        model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
+        #model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(64, 3, padding='same', activation='relu'))
-        model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
+        #model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
 
         model.add(tf.keras.layers.Flatten())
         model.add(tf.keras.layers.Dense(128, activation='relu'))
@@ -52,8 +52,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_train',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical',
-                shuffle=True
+                class_mode='categorical'
             )
             
     test_data_gen = ImageDataGenerator(
@@ -62,8 +61,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_test',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical',
-                shuffle=True
+                class_mode='categorical'
             )
             
     val_data_gen = ImageDataGenerator(
@@ -72,13 +70,12 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_validation',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical',
-                shuffle=True
+                class_mode='categorical'
             )
     
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1)
-    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.00001, verbose=1)
+    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.000001, verbose=1)
     csv_logger = CSVLogger(filename=f'results_csv/NN3-{timestamp_start}.csv', separator=',', append=False)
     
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
@@ -119,7 +116,7 @@ def evaluate_model(model, history, test_data_gen, timestamp_start, num_epochs):
     class_names = test_data_gen.class_indices
     class_names = list(class_names.keys())
         
-    desired_num_predictions = 348 #len(test_data_gen)
+    desired_num_predictions = 309 #len(test_data_gen)
 
     for x, y in test_data_gen:
         batch_size = x.shape[0]

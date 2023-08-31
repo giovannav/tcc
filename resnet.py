@@ -5,16 +5,16 @@ import argparse
 import datetime
 
 import numpy as np
-import tensorflow as tf
 from PIL import Image
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
+import tensorflow as tf
 from tensorflow.keras.applications import ResNet152
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
-# device = tf.config.list_physical_devices('GPU')
-# tf.config.experimental.set_memory_growth(device[0], True)
-# tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
+device = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(device[0], True)
+tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
     resnet_model = ResNet152(weights='imagenet', include_top=False, input_shape=input_shape)
@@ -26,8 +26,9 @@ def build_model(input_shape, num_classes):
         resnet_model,
         tf.keras.layers.GlobalAvgPool2D(),
         tf.keras.layers.Dense(256, activation='relu'),
+        tf.keras.layers.BatchNormalization(), #<-
         tf.keras.layers.Dense(128, activation='relu'), 
-        tf.keras.layers.Dropout(0.5),
+        #tf.keras.layers.Dropout(0.2),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 
@@ -50,8 +51,8 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_train',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical',
-                shuffle=True
+                class_mode='categorical'
+                #shuffle=True
             )
             
     test_data_gen = ImageDataGenerator(
@@ -60,8 +61,8 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_test',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical',
-                shuffle=True
+                class_mode='categorical'
+                #shuffle=True
             )
             
     val_data_gen = ImageDataGenerator(
@@ -70,8 +71,8 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_validation',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical',
-                shuffle=True
+                class_mode='categorical'
+                #shuffle=True
             )
     
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
