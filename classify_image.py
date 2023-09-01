@@ -20,7 +20,7 @@ while True:
         with open(img_name, "rb") as f:
             image = f.read()
 
-        image_content =  Image.open(img_name) #plt.imread("images/camas.jpg")
+        image_content = Image.open(img_name) #plt.imread("images/camas.jpg")
             
         image_content = (np.expand_dims(image_content, 0))
             
