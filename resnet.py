@@ -24,11 +24,11 @@ def build_model(input_shape, num_classes):
         
     model = tf.keras.Sequential([
         resnet_model,
-        tf.keras.layers.GlobalAvgPool2D(),
-        tf.keras.layers.Dense(256, activation='relu'),
-        tf.keras.layers.BatchNormalization(), #<-
+        # tf.keras.layers.GlobalAvgPool2D(),
+        # tf.keras.layers.Dense(256, activation='relu'),
+        # tf.keras.layers.BatchNormalization(), #<-
         tf.keras.layers.Dense(128, activation='relu'), 
-        #tf.keras.layers.Dropout(0.2),
+        # #tf.keras.layers.Dropout(0.2),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
 
@@ -52,7 +52,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
             
     test_data_gen = ImageDataGenerator(
@@ -62,7 +61,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
             
     val_data_gen = ImageDataGenerator(
@@ -77,7 +75,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1)
-    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.00001, verbose=1)
+    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.000001, verbose=1)
     csv_logger = CSVLogger(filename=f'results_csv/RESNET-{timestamp_start}.csv', separator=',', append=False)
     
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
@@ -118,7 +116,7 @@ def evaluate_model(model, history, test_data_gen, timestamp_start, num_epochs):
     class_names = test_data_gen.class_indices
     class_names = list(class_names.keys())
         
-    desired_num_predictions = 348 #len(test_data_gen)
+    desired_num_predictions = 309 #len(test_data_gen)
 
     for x, y in test_data_gen:
         batch_size = x.shape[0]

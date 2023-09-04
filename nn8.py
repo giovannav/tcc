@@ -8,7 +8,6 @@ import numpy as np
 from PIL import Image
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import tensorflow as tf
-from tensorflow.keras.applications import VGG16
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
@@ -17,25 +16,41 @@ tf.config.experimental.set_memory_growth(device[0], True)
 tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
-    vgg_model = VGG16(weights='imagenet', include_top=False, input_shape=input_shape)
+        model = tf.keras.Sequential()
+        model.add(tf.keras.layers.Conv2D(filters=16, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+        
+        model.add(tf.keras.layers.Flatten())
+        model.add(tf.keras.layers.Dense(128))
+        model.add(tf.keras.layers.Activation('relu'))
+        #model.add(tf.keras.layers.Dropout(0.5)) #v1
+        model.add(tf.keras.layers.Dropout(0.2))
 
-    for layer in vgg_model.layers:
-        layer.trainable = False
-
-    model = tf.keras.Sequential([
-        vgg_model,
-        tf.keras.layers.Flatten(),
-        #tf.keras.layers.GlobalAvgPool2D(),
-        tf.keras.layers.Dense(256, activation='relu'),
-        #tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(128, activation='relu'), 
-        #tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(64, activation='relu'), 
-        #tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(num_classes, activation='softmax')
-    ])
-
-    return model
+        model.add(tf.keras.layers.Dense(num_classes))
+        model.add(tf.keras.layers.Activation('softmax'))
+        
+        return model
 
 def train_model(num_epochs, img_shape, batch_size, learning_rate):
     num_classes = 4
@@ -63,7 +78,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_test',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical'
+                class_mode='categorical',
             )
             
     val_data_gen = ImageDataGenerator(
@@ -78,7 +93,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1)
     lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.000001, verbose=1)
-    csv_logger = CSVLogger(filename=f'results_csv/VGG16-{timestamp_start}.csv', separator=',', append=False)
+    csv_logger = CSVLogger(filename=f'results_csv/NN8-{timestamp_start}.csv', separator=',', append=False)
     
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
@@ -108,7 +123,7 @@ def evaluate_model(model, history, test_data_gen, timestamp_start, num_epochs):
     val_loss_list = history.history['val_loss']
         
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    model_name = f'VGG16-{timestamp_start}-{timestamp}'
+    model_name = f'NN8-{timestamp_start}-{timestamp}'
     model.save(f'results_h5/{model_name}.h5')
 
     predictions = []
@@ -166,4 +181,3 @@ if __name__ == "__main__":
     
     model, history, test_data_gen, timestamp_start, num_epochs = train_model(args.epochs, args.img_size, args.batch_size, args.learning_rate)
     evaluate_model(model, history, test_data_gen, timestamp_start, num_epochs)
-
