@@ -17,7 +17,7 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCh
 
 def build_model(input_shape, num_classes):
         model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
@@ -37,7 +37,7 @@ def build_model(input_shape, num_classes):
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
@@ -48,6 +48,7 @@ def build_model(input_shape, num_classes):
 
         model.add(tf.keras.layers.Dense(num_classes))
         model.add(tf.keras.layers.Activation('softmax'))
+        
         
         return model
 def train_model(num_epochs, img_shape, batch_size, learning_rate):

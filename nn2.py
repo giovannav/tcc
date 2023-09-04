@@ -11,34 +11,35 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
-device = tf.config.list_physical_devices('GPU')
-tf.config.experimental.set_memory_growth(device[0], True)
-tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
+# device = tf.config.list_physical_devices('GPU')
+# tf.config.experimental.set_memory_growth(device[0], True)
+# tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
-        model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Conv2D(64, 3, padding='same', activation='relu', input_shape=input_shape))
-        model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
     
-        model.add(tf.keras.layers.Conv2D(128, 3, padding='same', activation='relu'))
+        model = tf.keras.Sequential()
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
+    
+        model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.BatchNormalization())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(256, 3, padding='same', activation='relu'))
+        model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(512, 3, padding='same', activation='relu'))
+        model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(1024, 3, padding='same', activation='relu'))
+        model.add(tf.keras.layers.Conv2D(filters=512, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
-        model.add(tf.keras.layers.MaxPooling2D())
+        model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
 
         model.add(tf.keras.layers.Flatten())
-        model.add(tf.keras.layers.Dense(128, activation='relu'))
+        model.add(tf.keras.layers.Dense(256, activation='relu'))
         model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
         
         return model

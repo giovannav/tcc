@@ -12,24 +12,43 @@ from tensorflow.keras.applications import VGG16
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
-device = tf.config.list_physical_devices('GPU')
-tf.config.experimental.set_memory_growth(device[0], True)
-tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
+# device = tf.config.list_physical_devices('GPU')
+# tf.config.experimental.set_memory_growth(device[0], True)
+# tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
     vgg_model = VGG16(weights='imagenet', include_top=False, input_shape=input_shape)
 
-    for layer in vgg_model.layers:
-        layer.trainable = False
 
+    for layer in vgg_model.layers:  # Fine-tune the last few layers
+        layer.trainable = False
+        
     model = tf.keras.Sequential([
         vgg_model,
-        tf.keras.layers.GlobalAvgPool2D(),
-        tf.keras.layers.Dense(256, activation='relu'),
-        tf.keras.layers.Dense(128, activation='relu'), 
-        tf.keras.layers.Dropout(0.5),
+        tf.keras.layers.Flatten(),  # Use Global Average Pooling
+        tf.keras.layers.Dense(1024, activation='relu'),
+        tf.keras.layers.Dropout(0.2),  # Add dropout for regularization
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
+        
+    # model = tf.keras.Sequential([
+    #     vgg_model,
+    #     tf.keras.layers.GlobalAveragePooling2D(),  # Use Global Average Pooling
+    #     tf.keras.layers.Dense(512, activation='relu'),
+    #     tf.keras.layers.Dense(128, activation='relu'),
+    #     tf.keras.layers.Dropout(0.3),  # Add dropout for regularization
+    #     tf.keras.layers.Dense(num_classes, activation='softmax')
+    # ])
+
+    # model = tf.keras.Sequential([
+    #     vgg_model,
+    #     tf.keras.layers.Flatten(),
+    #     tf.keras.layers.Dense(512, activation='relu'),
+    #     tf.keras.layers.Dense(256, activation='relu'), 
+    #     tf.keras.layers.Dense(128, activation='relu'), 
+    #     #tf.keras.layers.BatchNormalization(),
+    #     tf.keras.layers.Dense(num_classes, activation='softmax')
+    # ])
 
     return model
 
@@ -76,7 +95,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1)
-    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.00001, verbose=1)
+    lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.000001, verbose=1)
     csv_logger = CSVLogger(filename=f'results_csv/VGG16-{timestamp_start}.csv', separator=',', append=False)
     
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
@@ -117,7 +136,7 @@ def evaluate_model(model, history, test_data_gen, timestamp_start, num_epochs):
     class_names = test_data_gen.class_indices
     class_names = list(class_names.keys())
         
-    desired_num_predictions = 348 #len(test_data_gen)
+    desired_num_predictions = 309 #len(test_data_gen)
 
     for x, y in test_data_gen:
         batch_size = x.shape[0]
