@@ -11,29 +11,29 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
-#device = tf.config.list_physical_devices('GPU')
-#tf.config.experimental.set_memory_growth(device[0], True)
-# tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
+device = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(device[0], True)
+tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
         model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.Conv2D(filters=16, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
-        model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
+        model.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
@@ -42,15 +42,17 @@ def build_model(input_shape, num_classes):
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
         
         model.add(tf.keras.layers.Flatten())
-        model.add(tf.keras.layers.Dense(256))
+        model.add(tf.keras.layers.Dense(128))
         model.add(tf.keras.layers.Activation('relu'))
-        model.add(tf.keras.layers.Dropout(0.5))
+        #model.add(tf.keras.layers.Dropout(0.5)) #v1
+        model.add(tf.keras.layers.Dropout(0.2))
 
         model.add(tf.keras.layers.Dense(num_classes))
         model.add(tf.keras.layers.Activation('softmax'))
         
         
         return model
+
 def train_model(num_epochs, img_shape, batch_size, learning_rate):
     num_classes = 4
     input_shape = (img_shape, img_shape, 3)
@@ -60,8 +62,8 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     train_data_gen = ImageDataGenerator(
                 rescale=1./255,
                 rotation_range=180,
-                #zoom_range=0.2,
-                brightness_range=[0, 3],
+                zoom_range=0.2,
+                brightness_range=[0, 2],
                 horizontal_flip=True,
                 vertical_flip=True
             ).flow_from_directory(
@@ -69,7 +71,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
             
     test_data_gen = ImageDataGenerator(
@@ -78,18 +79,16 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 'camas_tiles_test',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
-                class_mode='categorical'
-                #shuffle=True
+                class_mode='categorical',
             )
             
     val_data_gen = ImageDataGenerator(
-             rescale=1./255
+            rescale=1./255
             ).flow_from_directory(
                 'camas_tiles_validation',
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
     
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")

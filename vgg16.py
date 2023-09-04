@@ -25,9 +25,14 @@ def build_model(input_shape, num_classes):
         
     model = tf.keras.Sequential([
         vgg_model,
-        tf.keras.layers.Flatten(),  # Use Global Average Pooling
-        tf.keras.layers.Dense(1024, activation='relu'),
-        tf.keras.layers.Dropout(0.2),  # Add dropout for regularization
+        tf.keras.layers.Flatten(),
+        #tf.keras.layers.GlobalAvgPool2D(),
+        tf.keras.layers.Dense(256, activation='relu'),
+        #tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.Dense(128, activation='relu'), 
+        #tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.Dense(64, activation='relu'), 
+        #tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
         
@@ -70,7 +75,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
             
     test_data_gen = ImageDataGenerator(
@@ -80,7 +84,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #huffle=True
             )
             
     val_data_gen = ImageDataGenerator(
@@ -90,7 +93,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
     
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")

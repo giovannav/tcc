@@ -24,10 +24,10 @@ def build_model(input_shape, num_classes):
         
     model = tf.keras.Sequential([
         resnet_model,
-        tf.keras.layers.GlobalAvgPool2D(),
+        # tf.keras.layers.GlobalAvgPool2D(),
         # tf.keras.layers.Dense(256, activation='relu'),
         # tf.keras.layers.BatchNormalization(), #<-
-        # tf.keras.layers.Dense(128, activation='relu'), 
+        tf.keras.layers.Dense(128, activation='relu'), 
         # #tf.keras.layers.Dropout(0.2),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])
@@ -52,7 +52,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
             
     test_data_gen = ImageDataGenerator(
@@ -62,7 +61,6 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
                 target_size=(img_shape, img_shape),
                 batch_size=batch_size,
                 class_mode='categorical'
-                #shuffle=True
             )
             
     val_data_gen = ImageDataGenerator(
