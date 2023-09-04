@@ -3,6 +3,12 @@
 /camas_tiles_test
 /camas_tiles_train
 /camas_tiles_validation
+/camas_tiles_test_avg
+/camas_tiles_train_avg
+/camas_tiles_validation_avg
+/camas_tiles_test_YCRCB
+/camas_tiles_train_YCRCB
+/camas_tiles_validation_YCRCB
 /dataset3amostras
 /dataset4amostrasFrente+Umida
 /dataset5amostrasMeio+Seca
@@ -10,3 +16,9 @@
 /dataset7CascaAmendoim6semCentroL1
 /results_h5
 /images
+/256x256_images
+/h5_notebook
+/poor_performing_models
+/images
+/results_txt/testing_models
+/results_csv/testing_notebook
