@@ -20,7 +20,7 @@ def build_model(input_shape, num_classes):
     vgg_model = VGG16(weights='imagenet', include_top=False, input_shape=input_shape)
 
 
-    for layer in vgg_model.layers:  # Fine-tune the last few layers
+    for layer in vgg_model.layers:
         layer.trainable = False
         
     model = tf.keras.Sequential([
