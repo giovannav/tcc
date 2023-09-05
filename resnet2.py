@@ -8,7 +8,7 @@ import numpy as np
 from PIL import Image
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 import tensorflow as tf
-from tensorflow.keras.applications import ResNet50
+from tensorflow.keras.applications import ResNet50V2
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
@@ -17,7 +17,7 @@ tf.config.experimental.set_memory_growth(device[0], True)
 tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
-    resnet_model = ResNet50(weights='imagenet', include_top=False, input_shape=input_shape)
+    resnet_model = ResNet50V2(weights='imagenet', include_top=False, input_shape=input_shape)
 
     for layer in resnet_model.layers:
         layer.trainable = False
@@ -79,7 +79,7 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     timestamp_start = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1)
     lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.000001, verbose=1)
-    csv_logger = CSVLogger(filename=f'results_csv/RESNET-{timestamp_start}.csv', separator=',', append=False)
+    csv_logger = CSVLogger(filename=f'results_csv/RESNETV2-{timestamp_start}.csv', separator=',', append=False)
     
     optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
@@ -109,7 +109,7 @@ def evaluate_model(model, history, test_data_gen, timestamp_start, num_epochs):
     val_loss_list = history.history['val_loss']
         
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    model_name = f'RESNET-{timestamp_start}-{timestamp}'
+    model_name = f'RESNETV2-{timestamp_start}-{timestamp}'
     model.save(f'results_h5/{model_name}.h5')
 
     predictions = []
