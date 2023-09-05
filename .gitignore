@@ -20,5 +20,10 @@
 /h5_notebook
 /poor_performing_models
 /images
+/results_txt/jetson-but-bad
 /results_txt/testing_models
+/results_txt/old_trainings
 /results_csv/testing_notebook
+/results_csv/jetson-but-bad
+/results_csv/old_results
+/discarded
