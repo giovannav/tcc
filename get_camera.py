@@ -13,7 +13,7 @@ import datetime as datetime
 
 #model = load_model("results_h5/model-NN5-3-layers-256-128-64-epochs-100-imgshape-128-batchsize-8-2023-08-11_00-38-07.h5")
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 
 while True:
@@ -25,10 +25,10 @@ while True:
     # result = classes[predictions_single.argmax()]
     # print(result)
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-
+    frame=cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
     cv2.imshow('img1', frame) #display the captured image
     if cv2.waitKey(1) & 0xFF == ord('y'): #save on pressing 'y' 
-        img  = cv2.resize(frame, (128, 128), interpolation = cv2.INTER_AREA)
+        img  = cv2.resize(frame, (300, 300), interpolation = cv2.INTER_AREA)
         name = 'images/camas'+timestamp+'.jpg'
         cv2.imwrite(name, img)
         
