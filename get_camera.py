@@ -14,7 +14,7 @@ while True:
 
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
-    #frame0 = cv2.rotate(frame0, cv2.ROTATE_90_CLOCKWISE) # camera termica
+    frame0 = cv2.rotate(frame0, cv2.ROTATE_180) # camera termica
     frame1 = cv2.rotate(frame1, cv2.ROTATE_90_CLOCKWISE) # camera rgb
 
     cv2.imshow('Camera 0', frame0)
