@@ -14,8 +14,8 @@ while True:
 
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
-    frame0 = cv2.rotate(frame0, cv2.ROTATE_90_CLOCKWISE)
-    frame1 = cv2.rotate(frame1, cv2.ROTATE_90_CLOCKWISE)
+    #frame0 = cv2.rotate(frame0, cv2.ROTATE_90_CLOCKWISE) # camera termica
+    frame1 = cv2.rotate(frame1, cv2.ROTATE_90_CLOCKWISE) # camera rgb
 
     cv2.imshow('Camera 0', frame0)
     cv2.imshow('Camera 1', frame1)
@@ -24,12 +24,12 @@ while True:
 
     current_time = time.time()
 
-    if key & 0xFF == ord('y') or (current_time - last_capture_time) >= capture_interval:
+    if (current_time - last_capture_time) >= capture_interval:
         img0 = cv2.resize(frame0, (300, 300), interpolation=cv2.INTER_AREA)
         img1 = cv2.resize(frame1, (300, 300), interpolation=cv2.INTER_AREA)
 
-        name0 = 'images/camera0_' + timestamp + '.jpg'
-        name1 = 'images/camera1_' + timestamp + '.jpg'
+        name0 = 'robot_images/camera0_' + timestamp + '.jpg'
+        name1 = 'robot_images/camera1_' + timestamp + '.jpg'
 
         cv2.imwrite(name0, img0)
         cv2.imwrite(name1, img1)
