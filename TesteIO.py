@@ -7,29 +7,17 @@ import datetime
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(9, GPIO.IN)
 
-# configura intervalo de captura
-capture_interval = 1800 # 1800 segundos = 30 minutos
-last_capture_time = time.time()
-
 while(True):
     i = GPIO.input(9)
     print("input status:", i)
-    
-    # horário atual
-    current_time = time.time()
-    
-    # se o input = 1 e última captura >= 30 minutos
-    if i == 1 and ((current_time - last_capture_time) >= capture_interval):
+        
+    # se o input = 1
+    if i == 1:
         timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
         # configura câmeras
         cap0 = cv2.VideoCapture(0)
         cap1 = cv2.VideoCapture(1)
-        
-        # erro em alguma das câmeras
-        if not cap0.isOpened() or not cap1.isOpened():
-            print("Error: Cameras not found")
-            break
 
         # lê captura imagens das câmeras
         _, frame0 = cap0.read()
@@ -37,7 +25,7 @@ while(True):
 
         # rotate
         frame0 = cv2.rotate(frame0, cv2.ROTATE_180) # camera termica
-        frame1 = cv2.rotate(frame1, cv2.ROTATE_90_CLOCKWISE) # camera rgb
+        #frame1 = cv2.rotate(frame1, cv2.ROTATE_90_CLOCKWISE) # camera rgb
 
         # resize
         img0 = cv2.resize(frame0, (300, 300), interpolation=cv2.INTER_AREA)
@@ -56,12 +44,13 @@ while(True):
         cap1.release()
         cv2.destroyAllWindows()
         
-        # atualiza última captura
-        last_capture_time = current_time
+        # tira uma foto a cada 1 segundo enquanto o sinal for positivo
+        time.sleep(1)
             
-    # 1 segundo entre cada leitura do input digital
-    time.sleep(1)
-
+    elif i == 0:
+        print('sleeping')
+        time.sleep(1800) # para verificação por meia hora
+        
 # libera recursos usados pelo opencv
 cv2.destroyAllWindows()
 
