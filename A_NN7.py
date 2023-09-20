@@ -29,7 +29,7 @@ def build_model(input_shape, num_classes):
         model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
-        
+
         model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=(3,3), input_shape=input_shape, activation='relu', padding='same'))
         model.add(tf.keras.layers.BatchNormalization())
         model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
@@ -87,7 +87,8 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.000001, verbose=1)
     csv_logger = CSVLogger(filename=f'results_csv/NN2-{timestamp_start}.csv', separator=',', append=False)
     
-    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    #optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate, decay=1e-6)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
     
     train_steps = len(train_data_gen)

@@ -11,9 +11,9 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, CSVLogger
 
-device = tf.config.list_physical_devices('GPU')
-tf.config.experimental.set_memory_growth(device[0], True)
-tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
+# device = tf.config.list_physical_devices('GPU')
+# tf.config.experimental.set_memory_growth(device[0], True)
+# tf.config.experimental.set_virtual_device_configuration(device[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=512)])
 
 def build_model(input_shape, num_classes):
         model = tf.keras.Sequential()
@@ -96,7 +96,8 @@ def train_model(num_epochs, img_shape, batch_size, learning_rate):
     lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=8, min_lr=0.000001, verbose=1)
     csv_logger = CSVLogger(filename=f'results_csv/NN8-{timestamp_start}.csv', separator=',', append=False)
     
-    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    #optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate, decay=1e-6)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
     
     train_steps = len(train_data_gen)

@@ -27,11 +27,11 @@ def build_model(input_shape, num_classes):
         vgg_model,
         tf.keras.layers.Flatten(),
         #tf.keras.layers.GlobalAvgPool2D(),
-        tf.keras.layers.Dense(256, activation='relu'),
+        #tf.keras.layers.Dense(256, activation='relu'),
         #tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(128, activation='relu'), 
+        tf.keras.layers.Dense(4096, activation='relu'), 
         #tf.keras.layers.BatchNormalization(),
-        tf.keras.layers.Dense(64, activation='relu'), 
+        tf.keras.layers.Dense(4096, activation='relu'), 
         #tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dense(num_classes, activation='softmax')
     ])

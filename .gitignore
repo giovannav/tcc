@@ -20,6 +20,8 @@
 /h5_notebook
 /poor_performing_models
 /images
+/results_csv/
+/results_txt/
 /results_txt/jetson-but-bad
 /results_txt/testing_models
 /results_txt/old_trainings
@@ -29,3 +31,4 @@
 /discarded
 /tflite
 /robot_images
+/imagens_removidas/
