@@ -32,3 +32,10 @@
 /tflite
 /robot_images
 /imagens_removidas/
+/frames/
+/h5_jetson_nano_copy/
+/resized_frames/
+/augmented/
+frames.zip/
+mean_color.ipynb
+resutados.xlsx
